@@ -1,0 +1,13 @@
+//
+//  UIView+WSPFrame.h
+//  WSPNews
+//
+//  Created by auto on 16/2/16.
+//  Copyright © 2016年 auto. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UIView (WSPFrame)
+
+@end

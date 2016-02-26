@@ -1,0 +1,13 @@
+//
+//  WSPDetailModel.h
+//  WSPNews
+//
+//  Created by auto on 16/2/3.
+//  Copyright © 2016年 auto. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface WSPDetailModel : NSObject
+
+@end
