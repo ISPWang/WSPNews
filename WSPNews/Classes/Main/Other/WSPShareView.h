@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface WSPShareView : UIView
++ (void)showShareViewWithObj:(NSObject *)curObj;
+@end
 
+@interface WSPShareView_Item : UIView
+@property (strong, nonatomic) NSString *snsName;
+@property (copy, nonatomic) void(^clickedBlock)(NSString *snsName);
++ (instancetype)itemWithSnsName:(NSString *)snsName;
++ (CGFloat)itemWidth;
++ (CGFloat)itemHeight;
 @end

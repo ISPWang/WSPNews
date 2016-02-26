@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WSPHomeModel.h"
 
 @interface WSPNewsDetailViewController : UIViewController
-
+@property (nonatomic, strong) WSPHomeModel *newsModel;
+@property (nonatomic, assign) NSInteger index;
 @end

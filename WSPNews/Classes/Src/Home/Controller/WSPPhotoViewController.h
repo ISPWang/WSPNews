@@ -9,5 +9,5 @@
 #import "WSPBaseViewController.h"
 
 @interface WSPPhotoViewController : WSPBaseViewController
-
+@property (nonatomic, copy) NSString *photosetID;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface WSPPhotoRequest : NSObject
-
+#import "YTKRequest.h"
+@interface WSPPhotoRequest : YTKRequest
+@property (nonatomic, copy) NSString *photoID;
 @end

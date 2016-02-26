@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface WSPNewsDeatilRequest : NSObject
-
+#import "YTKRequest.h"
+@interface WSPNewsDeatilRequest : YTKRequest
+@property (nonatomic, copy) NSString *docid;
 @end

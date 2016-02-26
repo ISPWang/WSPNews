@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface WSPHomeRequest : NSObject
-
+#import "YTKRequest.h"
+@interface WSPHomeRequest : YTKRequest
+@property (nonatomic, copy) NSString *urlString;
+@property (nonatomic, strong) NSDictionary *dict;
 @end

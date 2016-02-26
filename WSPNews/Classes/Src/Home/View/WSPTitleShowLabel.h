@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WSPTitleShowLabel : UILabel
-
+@property (nonatomic, assign) CGFloat scale;
 @end

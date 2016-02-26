@@ -10,4 +10,18 @@
 
 @interface WSPReleatedModel : NSObject
 
+@property (nonatomic, copy) NSString *source;
+
+@property (nonatomic, copy) NSString *imgsrc;
+
+@property (nonatomic, copy) NSString *ptime;
+
+@property (nonatomic, copy) NSString *id;
+
+@property (nonatomic, copy) NSString *title;
+
+@property (nonatomic, copy) NSString *href;
+
+@property (nonatomic, copy) NSString *type;
+
 @end

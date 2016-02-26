@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WSPTableViewController : UITableViewController
-
+@property (nonatomic, assign) NSInteger index;
+@property (nonatomic, copy) NSString *urlString;
 @end

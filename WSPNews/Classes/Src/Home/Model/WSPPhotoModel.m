@@ -10,4 +10,13 @@
 
 @implementation WSPPhotoModel
 
+
++ (NSDictionary *)objectClassInArray{
+    return @{@"photos" : [Photos class]};
+}
 @end
+@implementation Photos
+
+@end
+
+

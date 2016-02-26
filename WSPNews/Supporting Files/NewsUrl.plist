@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   NewsUrl.plist
-   WSPNews
-
-   Created by auto on 16/1/27.
-   Copyright (c) 2016年 auto. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<array>
+	<dict>
+		<key>title</key>
+		<string>推荐</string>
+		<key>urlString</key>
+		<string>headline/T1348647853363</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>最新</string>
+		<key>urlString</key>
+		<string>list/T1348649145984</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>新车</string>
+		<key>urlString</key>
+		<string>list/T1348649654285</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>购车</string>
+		<key>urlString</key>
+		<string>list/T1351233117091</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>文化</string>
+		<key>urlString</key>
+		<string>list/T1348648517839</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>行业</string>
+		<key>urlString</key>
+		<string>list/T1348650593803</string>
+	</dict>
+</array>
 </plist>

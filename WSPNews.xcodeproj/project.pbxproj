@@ -7,14 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8A324C8B34558516559CC11 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE6766FB4E2087E4A9FED8B /* libPods.a */; };
 		C93C56851C3D076400599C00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56841C3D076400599C00 /* main.m */; };
 		C93C56881C3D076400599C00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56871C3D076400599C00 /* AppDelegate.m */; };
-		C93C568B1C3D076400599C00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C568A1C3D076400599C00 /* ViewController.m */; };
 		C93C568E1C3D076400599C00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93C568C1C3D076400599C00 /* Main.storyboard */; };
 		C93C56901C3D076400599C00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C93C568F1C3D076400599C00 /* Assets.xcassets */; };
 		C93C56931C3D076400599C00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93C56911C3D076400599C00 /* LaunchScreen.storyboard */; };
 		C93C569E1C3D076400599C00 /* WSPNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C569D1C3D076400599C00 /* WSPNewsTests.m */; };
 		C93C56A91C3D076400599C00 /* WSPNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56A81C3D076400599C00 /* WSPNewsUITests.m */; };
+		C93C56C41C3D097000599C00 /* WSPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56C31C3D097000599C00 /* WSPBaseViewController.m */; };
+		C93C56C71C3D098900599C00 /* WSPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56C61C3D098900599C00 /* WSPHomeViewController.m */; };
+		C93C56CA1C3D0A6300599C00 /* WSPHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56C91C3D0A6300599C00 /* WSPHomeModel.m */; };
+		C93C56CD1C3D0A7100599C00 /* WSPHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56CC1C3D0A7100599C00 /* WSPHomeViewModel.m */; };
+		C93C56D01C3D0A8D00599C00 /* WSPHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56CF1C3D0A8D00599C00 /* WSPHomeCell.m */; };
+		C93C56E91C3D0E9700599C00 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56E11C3D0E9700599C00 /* UIView+Frame.m */; };
+		C93C56EA1C3D0E9700599C00 /* YZDisplayTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56E31C3D0E9700599C00 /* YZDisplayTitleLabel.m */; };
+		C93C56EB1C3D0E9700599C00 /* YZDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56E51C3D0E9700599C00 /* YZDisplayViewController.m */; };
+		C93C56EC1C3D0E9700599C00 /* YZFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56E81C3D0E9700599C00 /* YZFlowLayout.m */; };
+		C93C56F21C3D14F800599C00 /* WSPConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56F11C3D14F800599C00 /* WSPConst.m */; };
+		C93C56F51C3D16E300599C00 /* WSPUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56F41C3D16E300599C00 /* WSPUrlArgumentsFilter.m */; };
+		C93C56F81C3D19FF00599C00 /* WSPHomeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56F71C3D19FF00599C00 /* WSPHomeRequest.m */; };
+		C93D01601C7D834E00FF4D08 /* WSPShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D015F1C7D834E00FF4D08 /* WSPShareView.m */; };
+		C93D01651C7D84C000FF4D08 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D01621C7D84C000FF4D08 /* UIColor+expanded.m */; };
+		C93D01661C7D84C000FF4D08 /* UIView+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D01641C7D84C000FF4D08 /* UIView+BlocksKit.m */; };
+		C93D01691C7D854700FF4D08 /* UIGestureRecognizer+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D01681C7D854700FF4D08 /* UIGestureRecognizer+BlocksKit.m */; };
+		C9414B911C5854940091A6C7 /* WSPMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9414B901C5854940091A6C7 /* WSPMainTabBarController.m */; };
+		C9414B941C5855700091A6C7 /* WSPNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9414B931C5855700091A6C7 /* WSPNavgationController.m */; };
+		C9414B961C5859CE0091A6C7 /* NewsUrl.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9414B951C5859CE0091A6C7 /* NewsUrl.plist */; };
+		C9414B981C585C280091A6C7 /* WSPNews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9414B971C585C280091A6C7 /* WSPNews.storyboard */; };
+		C9414B9B1C585C850091A6C7 /* WSPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9414B9A1C585C850091A6C7 /* WSPTableViewController.m */; };
+		C9414B9E1C585D420091A6C7 /* WSPTitleShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9414B9D1C585D420091A6C7 /* WSPTitleShowLabel.m */; };
+		C9464BC91C61905C00ACBC4F /* WSPNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BC81C61905C00ACBC4F /* WSPNewsDetailViewController.m */; };
+		C9464BCC1C61927600ACBC4F /* WSPDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BCB1C61927600ACBC4F /* WSPDetailModel.m */; };
+		C9464BCF1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */; };
+		C9464BD11C619F2800ACBC4F /* WSPNews.css in Resources */ = {isa = PBXBuildFile; fileRef = C9464BD01C619F2800ACBC4F /* WSPNews.css */; };
+		C96589041C744C9400E5184C /* AutoStirViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589031C744C9400E5184C /* AutoStirViewController.m */; };
+		C96589071C7451CE00E5184C /* WSPPhotoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589061C7451CE00E5184C /* WSPPhotoRequest.m */; };
+		C965890A1C74548500E5184C /* WSPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589091C74548500E5184C /* WSPPhotoModel.m */; };
+		C965890D1C74574800E5184C /* WSPPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C965890C1C74574800E5184C /* WSPPhotoViewController.m */; };
+		C99BC8AA1C72F7D20022C12C /* WSPReleatedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8A91C72F7D20022C12C /* WSPReleatedModel.m */; };
+		C99BC8AD1C72FE4B0022C12C /* UIView+WSPFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8AC1C72FE4B0022C12C /* UIView+WSPFrame.m */; };
+		C99BC8AF1C72FF440022C12C /* WSPDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99BC8AE1C72FF440022C12C /* WSPDetailBottomCell.xib */; };
+		C99BC8B21C72FFFD0022C12C /* WSPDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B11C72FFFD0022C12C /* WSPDetailBottomCell.m */; };
+		C99BC8B51C7303BE0022C12C /* WSPReplyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B41C7303BE0022C12C /* WSPReplyRequest.m */; };
+		C99BC8B81C7306890022C12C /* WSPReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B71C7306890022C12C /* WSPReplyModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +71,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2FE6766FB4E2087E4A9FED8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AABB8A61937430F9681898E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A5DF3E453F9BFFB8B0010F56 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C93C56801C3D076400599C00 /* WSPNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSPNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93C56841C3D076400599C00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C93C56861C3D076400599C00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C93C56871C3D076400599C00 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C93C56891C3D076400599C00 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C93C568A1C3D076400599C00 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C93C568D1C3D076400599C00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C93C568F1C3D076400599C00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C93C56921C3D076400599C00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +88,76 @@
 		C93C56A41C3D076400599C00 /* WSPNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WSPNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93C56A81C3D076400599C00 /* WSPNewsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WSPNewsUITests.m; sourceTree = "<group>"; };
 		C93C56AA1C3D076400599C00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C93C56C21C3D097000599C00 /* WSPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPBaseViewController.h; sourceTree = "<group>"; };
+		C93C56C31C3D097000599C00 /* WSPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPBaseViewController.m; sourceTree = "<group>"; };
+		C93C56C51C3D098900599C00 /* WSPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPHomeViewController.h; sourceTree = "<group>"; };
+		C93C56C61C3D098900599C00 /* WSPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPHomeViewController.m; sourceTree = "<group>"; };
+		C93C56C81C3D0A6300599C00 /* WSPHomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPHomeModel.h; sourceTree = "<group>"; };
+		C93C56C91C3D0A6300599C00 /* WSPHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPHomeModel.m; sourceTree = "<group>"; };
+		C93C56CB1C3D0A7100599C00 /* WSPHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPHomeViewModel.h; sourceTree = "<group>"; };
+		C93C56CC1C3D0A7100599C00 /* WSPHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPHomeViewModel.m; sourceTree = "<group>"; };
+		C93C56CE1C3D0A8D00599C00 /* WSPHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPHomeCell.h; sourceTree = "<group>"; };
+		C93C56CF1C3D0A8D00599C00 /* WSPHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPHomeCell.m; sourceTree = "<group>"; };
+		C93C56E01C3D0E9700599C00 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		C93C56E11C3D0E9700599C00 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		C93C56E21C3D0E9700599C00 /* YZDisplayTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayTitleLabel.h; sourceTree = "<group>"; };
+		C93C56E31C3D0E9700599C00 /* YZDisplayTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDisplayTitleLabel.m; sourceTree = "<group>"; };
+		C93C56E41C3D0E9700599C00 /* YZDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayViewController.h; sourceTree = "<group>"; };
+		C93C56E51C3D0E9700599C00 /* YZDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZDisplayViewController.m; sourceTree = "<group>"; };
+		C93C56E61C3D0E9700599C00 /* YZDisplayViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZDisplayViewHeader.h; sourceTree = "<group>"; };
+		C93C56E71C3D0E9700599C00 /* YZFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZFlowLayout.h; sourceTree = "<group>"; };
+		C93C56E81C3D0E9700599C00 /* YZFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZFlowLayout.m; sourceTree = "<group>"; };
+		C93C56EF1C3D116A00599C00 /* WSPPrefixFile.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPrefixFile.pch; sourceTree = "<group>"; };
+		C93C56F01C3D14F800599C00 /* WSPConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPConst.h; sourceTree = "<group>"; };
+		C93C56F11C3D14F800599C00 /* WSPConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPConst.m; sourceTree = "<group>"; };
+		C93C56F31C3D16E300599C00 /* WSPUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WSPUrlArgumentsFilter.h; path = WSPNews/Classes/Main/Other/WSPUrlArgumentsFilter.h; sourceTree = SOURCE_ROOT; };
+		C93C56F41C3D16E300599C00 /* WSPUrlArgumentsFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WSPUrlArgumentsFilter.m; path = WSPNews/Classes/Main/Other/WSPUrlArgumentsFilter.m; sourceTree = SOURCE_ROOT; };
+		C93C56F61C3D19FF00599C00 /* WSPHomeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPHomeRequest.h; sourceTree = "<group>"; };
+		C93C56F71C3D19FF00599C00 /* WSPHomeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPHomeRequest.m; sourceTree = "<group>"; };
+		C93D015E1C7D834E00FF4D08 /* WSPShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPShareView.h; sourceTree = "<group>"; };
+		C93D015F1C7D834E00FF4D08 /* WSPShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPShareView.m; sourceTree = "<group>"; };
+		C93D01611C7D84C000FF4D08 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+expanded.h"; path = "WSPNews/Classes/Main/Other/UIColor+expanded.h"; sourceTree = SOURCE_ROOT; };
+		C93D01621C7D84C000FF4D08 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+expanded.m"; path = "WSPNews/Classes/Main/Other/UIColor+expanded.m"; sourceTree = SOURCE_ROOT; };
+		C93D01631C7D84C000FF4D08 /* UIView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+BlocksKit.h"; path = "WSPNews/Classes/Main/Other/UIView+BlocksKit.h"; sourceTree = SOURCE_ROOT; };
+		C93D01641C7D84C000FF4D08 /* UIView+BlocksKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+BlocksKit.m"; path = "WSPNews/Classes/Main/Other/UIView+BlocksKit.m"; sourceTree = SOURCE_ROOT; };
+		C93D01671C7D854700FF4D08 /* UIGestureRecognizer+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+BlocksKit.h"; path = "WSPNews/Classes/Main/Other/UIGestureRecognizer+BlocksKit.h"; sourceTree = SOURCE_ROOT; };
+		C93D01681C7D854700FF4D08 /* UIGestureRecognizer+BlocksKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+BlocksKit.m"; path = "WSPNews/Classes/Main/Other/UIGestureRecognizer+BlocksKit.m"; sourceTree = SOURCE_ROOT; };
+		C9414B8F1C5854940091A6C7 /* WSPMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPMainTabBarController.h; sourceTree = "<group>"; };
+		C9414B901C5854940091A6C7 /* WSPMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPMainTabBarController.m; sourceTree = "<group>"; };
+		C9414B921C5855700091A6C7 /* WSPNavgationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPNavgationController.h; sourceTree = "<group>"; };
+		C9414B931C5855700091A6C7 /* WSPNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPNavgationController.m; sourceTree = "<group>"; };
+		C9414B951C5859CE0091A6C7 /* NewsUrl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NewsUrl.plist; sourceTree = "<group>"; };
+		C9414B971C585C280091A6C7 /* WSPNews.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WSPNews.storyboard; sourceTree = "<group>"; };
+		C9414B991C585C850091A6C7 /* WSPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPTableViewController.h; sourceTree = "<group>"; };
+		C9414B9A1C585C850091A6C7 /* WSPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPTableViewController.m; sourceTree = "<group>"; };
+		C9414B9C1C585D420091A6C7 /* WSPTitleShowLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPTitleShowLabel.h; sourceTree = "<group>"; };
+		C9414B9D1C585D420091A6C7 /* WSPTitleShowLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPTitleShowLabel.m; sourceTree = "<group>"; };
+		C9464BC71C61905C00ACBC4F /* WSPNewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPNewsDetailViewController.h; sourceTree = "<group>"; };
+		C9464BC81C61905C00ACBC4F /* WSPNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPNewsDetailViewController.m; sourceTree = "<group>"; };
+		C9464BCA1C61927600ACBC4F /* WSPDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPDetailModel.h; sourceTree = "<group>"; };
+		C9464BCB1C61927600ACBC4F /* WSPDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPDetailModel.m; sourceTree = "<group>"; };
+		C9464BCD1C6192EB00ACBC4F /* WSPNewsDeatilRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPNewsDeatilRequest.h; sourceTree = "<group>"; };
+		C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPNewsDeatilRequest.m; sourceTree = "<group>"; };
+		C9464BD01C619F2800ACBC4F /* WSPNews.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = WSPNews.css; sourceTree = "<group>"; };
+		C96589021C744C9400E5184C /* AutoStirViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoStirViewController.h; sourceTree = "<group>"; };
+		C96589031C744C9400E5184C /* AutoStirViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoStirViewController.m; sourceTree = "<group>"; };
+		C96589051C7451CE00E5184C /* WSPPhotoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoRequest.h; sourceTree = "<group>"; };
+		C96589061C7451CE00E5184C /* WSPPhotoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoRequest.m; sourceTree = "<group>"; };
+		C96589081C74548500E5184C /* WSPPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoModel.h; sourceTree = "<group>"; };
+		C96589091C74548500E5184C /* WSPPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoModel.m; sourceTree = "<group>"; };
+		C965890B1C74574800E5184C /* WSPPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoViewController.h; sourceTree = "<group>"; };
+		C965890C1C74574800E5184C /* WSPPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoViewController.m; sourceTree = "<group>"; };
+		C99BC8A81C72F7D20022C12C /* WSPReleatedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPReleatedModel.h; sourceTree = "<group>"; };
+		C99BC8A91C72F7D20022C12C /* WSPReleatedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPReleatedModel.m; sourceTree = "<group>"; };
+		C99BC8AB1C72FE4B0022C12C /* UIView+WSPFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+WSPFrame.h"; path = "WSPNews/Classes/Src/Home/Model/UIView+WSPFrame.h"; sourceTree = SOURCE_ROOT; };
+		C99BC8AC1C72FE4B0022C12C /* UIView+WSPFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+WSPFrame.m"; path = "WSPNews/Classes/Src/Home/Model/UIView+WSPFrame.m"; sourceTree = SOURCE_ROOT; };
+		C99BC8AE1C72FF440022C12C /* WSPDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSPDetailBottomCell.xib; sourceTree = "<group>"; };
+		C99BC8B01C72FFFD0022C12C /* WSPDetailBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPDetailBottomCell.h; sourceTree = "<group>"; };
+		C99BC8B11C72FFFD0022C12C /* WSPDetailBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPDetailBottomCell.m; sourceTree = "<group>"; };
+		C99BC8B31C7303BE0022C12C /* WSPReplyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPReplyRequest.h; sourceTree = "<group>"; };
+		C99BC8B41C7303BE0022C12C /* WSPReplyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPReplyRequest.m; sourceTree = "<group>"; };
+		C99BC8B61C7306890022C12C /* WSPReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPReplyModel.h; sourceTree = "<group>"; };
+		C99BC8B71C7306890022C12C /* WSPReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPReplyModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A324C8B34558516559CC11 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +186,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		85727D070323DF286A7CB442 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FE6766FB4E2087E4A9FED8B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C93C56771C3D076400599C00 = {
 			isa = PBXGroup;
 			children = (
+				85727D070323DF286A7CB442 /* Frameworks */,
+				F049F144DB0F30DC4EE107BA /* Pods */,
+				C93C56811C3D076400599C00 /* Products */,
 				C93C56821C3D076400599C00 /* WSPNews */,
 				C93C569C1C3D076400599C00 /* WSPNewsTests */,
 				C93C56A71C3D076400599C00 /* WSPNewsUITests */,
-				C93C56811C3D076400599C00 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,15 +219,13 @@
 		C93C56821C3D076400599C00 /* WSPNews */ = {
 			isa = PBXGroup;
 			children = (
-				C93C56861C3D076400599C00 /* AppDelegate.h */,
-				C93C56871C3D076400599C00 /* AppDelegate.m */,
-				C93C56891C3D076400599C00 /* ViewController.h */,
-				C93C568A1C3D076400599C00 /* ViewController.m */,
-				C93C568C1C3D076400599C00 /* Main.storyboard */,
-				C93C568F1C3D076400599C00 /* Assets.xcassets */,
-				C93C56911C3D076400599C00 /* LaunchScreen.storyboard */,
-				C93C56941C3D076400599C00 /* Info.plist */,
+				C93C56B61C3D07D500599C00 /* Classes */,
 				C93C56831C3D076400599C00 /* Supporting Files */,
+				C93C568F1C3D076400599C00 /* Assets.xcassets */,
+				C93C56941C3D076400599C00 /* Info.plist */,
+				C93C56911C3D076400599C00 /* LaunchScreen.storyboard */,
+				C93C568C1C3D076400599C00 /* Main.storyboard */,
+				C9414B971C585C280091A6C7 /* WSPNews.storyboard */,
 			);
 			path = WSPNews;
 			sourceTree = "<group>";
@@ -118,15 +234,17 @@
 			isa = PBXGroup;
 			children = (
 				C93C56841C3D076400599C00 /* main.m */,
+				C9414B951C5859CE0091A6C7 /* NewsUrl.plist */,
+				C9464BD01C619F2800ACBC4F /* WSPNews.css */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C93C569C1C3D076400599C00 /* WSPNewsTests */ = {
 			isa = PBXGroup;
 			children = (
-				C93C569D1C3D076400599C00 /* WSPNewsTests.m */,
 				C93C569F1C3D076400599C00 /* Info.plist */,
+				C93C569D1C3D076400599C00 /* WSPNewsTests.m */,
 			);
 			path = WSPNewsTests;
 			sourceTree = "<group>";
@@ -134,10 +252,199 @@
 		C93C56A71C3D076400599C00 /* WSPNewsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C93C56A81C3D076400599C00 /* WSPNewsUITests.m */,
 				C93C56AA1C3D076400599C00 /* Info.plist */,
+				C93C56A81C3D076400599C00 /* WSPNewsUITests.m */,
 			);
 			path = WSPNewsUITests;
+			sourceTree = "<group>";
+		};
+		C93C56B61C3D07D500599C00 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56B71C3D07EB00599C00 /* Main */,
+				C93C56B81C3D07F800599C00 /* Src */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C93C56B71C3D07EB00599C00 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56BC1C3D086100599C00 /* Category */,
+				C93C56BB1C3D085A00599C00 /* Lib */,
+				C93C56BA1C3D083C00599C00 /* Network */,
+				C93C56EE1C3D113200599C00 /* Other */,
+				C93C56B91C3D080D00599C00 /* Utils */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C93C56B81C3D07F800599C00 /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56BD1C3D087A00599C00 /* Home */,
+			);
+			path = Src;
+			sourceTree = "<group>";
+		};
+		C93C56B91C3D080D00599C00 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C93C56BA1C3D083C00599C00 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56F31C3D16E300599C00 /* WSPUrlArgumentsFilter.h */,
+				C93C56F41C3D16E300599C00 /* WSPUrlArgumentsFilter.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C93C56BB1C3D085A00599C00 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56DF1C3D0E9700599C00 /* YZDisplayViewController */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		C93C56BC1C3D086100599C00 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C93D01611C7D84C000FF4D08 /* UIColor+expanded.h */,
+				C93D01621C7D84C000FF4D08 /* UIColor+expanded.m */,
+				C93D01631C7D84C000FF4D08 /* UIView+BlocksKit.h */,
+				C93D01641C7D84C000FF4D08 /* UIView+BlocksKit.m */,
+				C93D01671C7D854700FF4D08 /* UIGestureRecognizer+BlocksKit.h */,
+				C93D01681C7D854700FF4D08 /* UIGestureRecognizer+BlocksKit.m */,
+				C99BC8AB1C72FE4B0022C12C /* UIView+WSPFrame.h */,
+				C99BC8AC1C72FE4B0022C12C /* UIView+WSPFrame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		C93C56BD1C3D087A00599C00 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56BE1C3D088A00599C00 /* Controller */,
+				C93C56BF1C3D089600599C00 /* Model */,
+				C93C56C11C3D08A900599C00 /* View */,
+				C93C56C01C3D08A000599C00 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C93C56BE1C3D088A00599C00 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56C21C3D097000599C00 /* WSPBaseViewController.h */,
+				C93C56C31C3D097000599C00 /* WSPBaseViewController.m */,
+				C93C56C51C3D098900599C00 /* WSPHomeViewController.h */,
+				C93C56C61C3D098900599C00 /* WSPHomeViewController.m */,
+				C9414B991C585C850091A6C7 /* WSPTableViewController.h */,
+				C9414B9A1C585C850091A6C7 /* WSPTableViewController.m */,
+				C9464BC71C61905C00ACBC4F /* WSPNewsDetailViewController.h */,
+				C9464BC81C61905C00ACBC4F /* WSPNewsDetailViewController.m */,
+				C96589021C744C9400E5184C /* AutoStirViewController.h */,
+				C96589031C744C9400E5184C /* AutoStirViewController.m */,
+				C965890B1C74574800E5184C /* WSPPhotoViewController.h */,
+				C965890C1C74574800E5184C /* WSPPhotoViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C93C56BF1C3D089600599C00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56C81C3D0A6300599C00 /* WSPHomeModel.h */,
+				C93C56C91C3D0A6300599C00 /* WSPHomeModel.m */,
+				C9464BCA1C61927600ACBC4F /* WSPDetailModel.h */,
+				C9464BCB1C61927600ACBC4F /* WSPDetailModel.m */,
+				C99BC8A81C72F7D20022C12C /* WSPReleatedModel.h */,
+				C99BC8A91C72F7D20022C12C /* WSPReleatedModel.m */,
+				C99BC8B61C7306890022C12C /* WSPReplyModel.h */,
+				C99BC8B71C7306890022C12C /* WSPReplyModel.m */,
+				C96589081C74548500E5184C /* WSPPhotoModel.h */,
+				C96589091C74548500E5184C /* WSPPhotoModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C93C56C01C3D08A000599C00 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56CB1C3D0A7100599C00 /* WSPHomeViewModel.h */,
+				C93C56CC1C3D0A7100599C00 /* WSPHomeViewModel.m */,
+				C93C56F61C3D19FF00599C00 /* WSPHomeRequest.h */,
+				C93C56F71C3D19FF00599C00 /* WSPHomeRequest.m */,
+				C9464BCD1C6192EB00ACBC4F /* WSPNewsDeatilRequest.h */,
+				C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */,
+				C99BC8B31C7303BE0022C12C /* WSPReplyRequest.h */,
+				C99BC8B41C7303BE0022C12C /* WSPReplyRequest.m */,
+				C96589051C7451CE00E5184C /* WSPPhotoRequest.h */,
+				C96589061C7451CE00E5184C /* WSPPhotoRequest.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C93C56C11C3D08A900599C00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56CE1C3D0A8D00599C00 /* WSPHomeCell.h */,
+				C93C56CF1C3D0A8D00599C00 /* WSPHomeCell.m */,
+				C9414B9C1C585D420091A6C7 /* WSPTitleShowLabel.h */,
+				C9414B9D1C585D420091A6C7 /* WSPTitleShowLabel.m */,
+				C99BC8B01C72FFFD0022C12C /* WSPDetailBottomCell.h */,
+				C99BC8B11C72FFFD0022C12C /* WSPDetailBottomCell.m */,
+				C99BC8AE1C72FF440022C12C /* WSPDetailBottomCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C93C56DF1C3D0E9700599C00 /* YZDisplayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56E01C3D0E9700599C00 /* UIView+Frame.h */,
+				C93C56E11C3D0E9700599C00 /* UIView+Frame.m */,
+				C93C56E21C3D0E9700599C00 /* YZDisplayTitleLabel.h */,
+				C93C56E31C3D0E9700599C00 /* YZDisplayTitleLabel.m */,
+				C93C56E41C3D0E9700599C00 /* YZDisplayViewController.h */,
+				C93C56E51C3D0E9700599C00 /* YZDisplayViewController.m */,
+				C93C56E61C3D0E9700599C00 /* YZDisplayViewHeader.h */,
+				C93C56E71C3D0E9700599C00 /* YZFlowLayout.h */,
+				C93C56E81C3D0E9700599C00 /* YZFlowLayout.m */,
+			);
+			path = YZDisplayViewController;
+			sourceTree = "<group>";
+		};
+		C93C56EE1C3D113200599C00 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C93C56861C3D076400599C00 /* AppDelegate.h */,
+				C93C56871C3D076400599C00 /* AppDelegate.m */,
+				C93C56EF1C3D116A00599C00 /* WSPPrefixFile.pch */,
+				C93C56F01C3D14F800599C00 /* WSPConst.h */,
+				C93C56F11C3D14F800599C00 /* WSPConst.m */,
+				C9414B8F1C5854940091A6C7 /* WSPMainTabBarController.h */,
+				C9414B901C5854940091A6C7 /* WSPMainTabBarController.m */,
+				C9414B921C5855700091A6C7 /* WSPNavgationController.h */,
+				C9414B931C5855700091A6C7 /* WSPNavgationController.m */,
+				C93D015E1C7D834E00FF4D08 /* WSPShareView.h */,
+				C93D015F1C7D834E00FF4D08 /* WSPShareView.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		F049F144DB0F30DC4EE107BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF3E453F9BFFB8B0010F56 /* Pods.debug.xcconfig */,
+				4AABB8A61937430F9681898E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,9 +454,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C93C56AD1C3D076400599C00 /* Build configuration list for PBXNativeTarget "WSPNews" */;
 			buildPhases = (
+				7F3E61D5BA5CEB9DE3D9D1F2 /* Check Pods Manifest.lock */,
 				C93C567C1C3D076400599C00 /* Sources */,
 				C93C567D1C3D076400599C00 /* Frameworks */,
 				C93C567E1C3D076400599C00 /* Resources */,
+				4E5E18B40F5D740D84AF9C8F /* Embed Pods Frameworks */,
+				F7842199F49706443232F6FE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,6 +512,7 @@
 		C93C56781C3D076400599C00 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = WSP;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = auto;
 				TargetAttributes = {
@@ -246,6 +557,10 @@
 				C93C56931C3D076400599C00 /* LaunchScreen.storyboard in Resources */,
 				C93C56901C3D076400599C00 /* Assets.xcassets in Resources */,
 				C93C568E1C3D076400599C00 /* Main.storyboard in Resources */,
+				C9464BD11C619F2800ACBC4F /* WSPNews.css in Resources */,
+				C9414B961C5859CE0091A6C7 /* NewsUrl.plist in Resources */,
+				C9414B981C585C280091A6C7 /* WSPNews.storyboard in Resources */,
+				C99BC8AF1C72FF440022C12C /* WSPDetailBottomCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,14 +580,93 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E5E18B40F5D740D84AF9C8F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F3E61D5BA5CEB9DE3D9D1F2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7842199F49706443232F6FE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C93C567C1C3D076400599C00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C93C568B1C3D076400599C00 /* ViewController.m in Sources */,
+				C99BC8B51C7303BE0022C12C /* WSPReplyRequest.m in Sources */,
+				C99BC8B81C7306890022C12C /* WSPReplyModel.m in Sources */,
+				C93D01661C7D84C000FF4D08 /* UIView+BlocksKit.m in Sources */,
+				C9464BCF1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m in Sources */,
+				C93C56E91C3D0E9700599C00 /* UIView+Frame.m in Sources */,
+				C9414B9E1C585D420091A6C7 /* WSPTitleShowLabel.m in Sources */,
+				C93C56F81C3D19FF00599C00 /* WSPHomeRequest.m in Sources */,
+				C93C56CD1C3D0A7100599C00 /* WSPHomeViewModel.m in Sources */,
+				C99BC8AD1C72FE4B0022C12C /* UIView+WSPFrame.m in Sources */,
+				C9464BC91C61905C00ACBC4F /* WSPNewsDetailViewController.m in Sources */,
+				C93C56C71C3D098900599C00 /* WSPHomeViewController.m in Sources */,
+				C93C56C41C3D097000599C00 /* WSPBaseViewController.m in Sources */,
+				C9414B9B1C585C850091A6C7 /* WSPTableViewController.m in Sources */,
+				C93C56EB1C3D0E9700599C00 /* YZDisplayViewController.m in Sources */,
+				C96589071C7451CE00E5184C /* WSPPhotoRequest.m in Sources */,
+				C93C56EC1C3D0E9700599C00 /* YZFlowLayout.m in Sources */,
 				C93C56881C3D076400599C00 /* AppDelegate.m in Sources */,
+				C93D01601C7D834E00FF4D08 /* WSPShareView.m in Sources */,
+				C9414B941C5855700091A6C7 /* WSPNavgationController.m in Sources */,
+				C965890A1C74548500E5184C /* WSPPhotoModel.m in Sources */,
+				C93C56F51C3D16E300599C00 /* WSPUrlArgumentsFilter.m in Sources */,
+				C9464BCC1C61927600ACBC4F /* WSPDetailModel.m in Sources */,
+				C93D01691C7D854700FF4D08 /* UIGestureRecognizer+BlocksKit.m in Sources */,
+				C93C56D01C3D0A8D00599C00 /* WSPHomeCell.m in Sources */,
+				C96589041C744C9400E5184C /* AutoStirViewController.m in Sources */,
 				C93C56851C3D076400599C00 /* main.m in Sources */,
+				C99BC8B21C72FFFD0022C12C /* WSPDetailBottomCell.m in Sources */,
+				C93C56EA1C3D0E9700599C00 /* YZDisplayTitleLabel.m in Sources */,
+				C99BC8AA1C72F7D20022C12C /* WSPReleatedModel.m in Sources */,
+				C965890D1C74574800E5184C /* WSPPhotoViewController.m in Sources */,
+				C93C56F21C3D14F800599C00 /* WSPConst.m in Sources */,
+				C9414B911C5854940091A6C7 /* WSPMainTabBarController.m in Sources */,
+				C93D01651C7D84C000FF4D08 /* UIColor+expanded.m in Sources */,
+				C93C56CA1C3D0A6300599C00 /* WSPHomeModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +708,7 @@
 				C93C568D1C3D076400599C00 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		C93C56911C3D076400599C00 /* LaunchScreen.storyboard */ = {
@@ -322,6 +717,7 @@
 				C93C56921C3D076400599C00 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -409,23 +805,37 @@
 		};
 		C93C56AE1C3D076400599C00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5DF3E453F9BFFB8B0010F56 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PREFIX_HEADER = WSPNews/Classes/Main/Other/WSPPrefixFile.pch;
 				INFOPLIST_FILE = WSPNews/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ifeng.wspNews.WSPNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Debug;
 		};
 		C93C56AF1C3D076400599C00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AABB8A61937430F9681898E /* Pods.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PREFIX_HEADER = WSPNews/Classes/Main/Other/WSPPrefixFile.pch;
 				INFOPLIST_FILE = WSPNews/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ifeng.wspNews.WSPNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 			};
 			name = Release;
 		};
@@ -496,6 +906,7 @@
 				C93C56AF1C3D076400599C00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C93C56B01C3D076400599C00 /* Build configuration list for PBXNativeTarget "WSPNewsTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +915,7 @@
 				C93C56B21C3D076400599C00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C93C56B31C3D076400599C00 /* Build configuration list for PBXNativeTarget "WSPNewsUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +924,7 @@
 				C93C56B51C3D076400599C00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
