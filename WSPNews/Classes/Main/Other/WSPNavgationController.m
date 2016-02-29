@@ -30,6 +30,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/**
+ *  这里拦截导航控制器的Push方法，重新定向
+ *
+ *  @param viewController 控制器
+ *  @param animated       是否动画
+ */
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;

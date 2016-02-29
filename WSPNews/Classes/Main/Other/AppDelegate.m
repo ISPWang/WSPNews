@@ -25,6 +25,8 @@
 //    config.baseUrl = @"http://api.auto.ifeng.com";
     config.baseUrl = @"http://c.m.163.com/";//@"http://dealer.auto.ifeng.com";
     config.cdnUrl = @"http://auto.ifeng.com";
+    
+    // 修改配置选项
     return YES;
 }
 
