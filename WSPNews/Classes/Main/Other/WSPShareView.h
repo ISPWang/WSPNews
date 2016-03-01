@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WSPShareView : UIView
-+ (void)showShareViewWithObj:(NSObject *)curObj;
+//+ (void)showShareViewWithObj:(NSObject *)curObj;
 @end
 
 @interface WSPShareView_Item : UIView

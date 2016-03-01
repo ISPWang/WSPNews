@@ -80,7 +80,7 @@
                     [button setTitle:@"取消" forState:UIControlStateNormal];
                     [button setTitleColor:[UIColor colorWithHexString:@"0x808080"] forState:UIControlStateNormal];
                     [button setTitleColor:[UIColor colorWithHexString:@"0x3bbd79"] forState:UIControlStateHighlighted];
-                    [button addTarget:self action:@selector(p_dismiss) forControlEvents:UIControlEventTouchUpInside];
+//                    [button addTarget:self action:@selector(p_dismiss) forControlEvents:UIControlEventTouchUpInside];
                     button;
                 });
                 [_contentView addSubview:_dismissBtn];
