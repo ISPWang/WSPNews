@@ -10,8 +10,8 @@
 #import "AutoStirViewController.h"
 #import "WSPPhotoRequest.h"
 #import "WSPPhotoModel.h"
-@interface WSPPhotoViewController ()
-
+@interface WSPPhotoViewController () <MWPhotoBrowserDelegate>
+@property (nonatomic, strong) NSArray *photoName;
 @end
 
 @implementation WSPPhotoViewController
@@ -29,13 +29,50 @@
         
         NSDictionary *resbonseJson = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingMutableContainers error:nil];
         WSPPhotoModel *photoModel = [WSPPhotoModel mj_objectWithKeyValues:resbonseJson];
+        
+        
+        
+        
         NSMutableArray *photoName = [NSMutableArray array];
-        NSMutableArray *photoString = [NSMutableArray array];
+//        NSMutableArray *photoString = [NSMutableArray array];
+        
+        
+        
+        BOOL displayActionButton = YES;
+        BOOL displaySelectionButtons = NO;
+        BOOL displayNavArrows = NO;
+        BOOL enableGrid = YES;
+        BOOL startOnGrid = NO;
+        BOOL autoPlayOnAppear = NO;
+        
 //        NSMutableArray *photoDes = [NSMutableArray array];
         for (Photos *p  in photoModel.photos) {
-            [photoName addObject:p.imgurl];
-            [photoString addObject:p.note];
+            MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:p.imgurl]];
+            photo.caption = p.note;
+            // Photos
+            [photoName addObject:photo];
+//            [photoName addObject:p.imgurl];
+//            [photoString addObject:p.note];
         }
+        self.photoName = photoName;
+        
+        // Create browser
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        browser.displayActionButton = displayActionButton;
+        browser.displayNavArrows = displayNavArrows;
+        browser.displaySelectionButtons = displaySelectionButtons;
+        browser.alwaysShowControls = displaySelectionButtons;
+        browser.zoomPhotosToFill = YES;
+        browser.enableGrid = enableGrid;
+        browser.startOnGrid = startOnGrid;
+        browser.enableSwipeToDismiss = NO;
+        browser.autoPlayOnAppear = autoPlayOnAppear;
+        [browser setCurrentPhotoIndex:0];
+//        [self.view addSubview:browser.view];
+//        
+//        [self addChildViewController:browser];
+        [self.navigationController pushViewController:browser animated:NO];
+        /*
         AutoStirViewController *autoPhoto = [[AutoStirViewController alloc] init];
         
         autoPhoto.photoName = photoName;
@@ -61,6 +98,7 @@
         [self addChildViewController:autoPhoto];
         
         //        [self.navigationController pushViewController:autoPhoto animated:YES];
+         */
         
     } failure:^(__kindof YTKBaseRequest *request) {
         
@@ -71,6 +109,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.photoName.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photoName.count)
+        return [self.photoName objectAtIndex:index];
+    return nil;
+}
+
 
 /*
 #pragma mark - Navigation

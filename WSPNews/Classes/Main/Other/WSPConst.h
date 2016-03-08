@@ -30,6 +30,8 @@
 #import "UIColor+expanded.h"
 #import "UIView+BlocksKit.h"
 
+#import "MWPhotoBrowser.h"
+
 #define kScreen_Bounds [UIScreen mainScreen].bounds
 #define kScreen_Height [UIScreen mainScreen].bounds.size.height
 #define kScreen_Width [UIScreen mainScreen].bounds.size.width

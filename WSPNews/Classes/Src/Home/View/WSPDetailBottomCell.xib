@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,11 +15,39 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news_share" translatesAutoresizingMaskIntoConstraints="NO" id="e5E-tT-6Pf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="125.5"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="e5E-tT-6Pf">
+                        <rect key="frame" x="8" y="8" width="359" height="109.5"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHg-Ak-QLQ">
-                        <rect key="frame" x="8" y="46" width="85" height="67"/>
+                    <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ccm-OA-Hjz">
+                        <rect key="frame" x="183" y="28" width="85" height="70"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="33" minY="0.0" maxX="0.0" maxY="25"/>
+                        <state key="normal" title="宜信朋友圈" image="share_platform_yixintimeline">
+                            <color key="titleColor" red="0.1647058824" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="shareWeiChat:" destination="AYw-43-3JD" eventType="touchUpInside" id="2Ob-Hr-KTA"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1L-ld-gHx">
+                        <rect key="frame" x="277" y="28" width="85" height="70"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="33" minY="0.0" maxX="0.0" maxY="25"/>
+                        <state key="normal" title="更多" image="newscontent_share_more">
+                            <color key="titleColor" red="0.1647058824" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="shareWeiChat:" destination="AYw-43-3JD" eventType="touchUpInside" id="HXG-De-Zbd"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHg-Ak-QLQ">
+                        <rect key="frame" x="13" y="28" width="85" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="8rb-4E-PQE"/>
+                            <constraint firstAttribute="width" constant="85" id="Vao-vN-iqX"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="33" minY="0.0" maxX="0.0" maxY="25"/>
@@ -29,13 +58,45 @@
                             <action selector="shareWeiChat:" destination="AYw-43-3JD" eventType="touchUpInside" id="Qkd-mJ-Dhm"/>
                         </connections>
                     </button>
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWs-lj-RT2">
+                        <rect key="frame" x="98" y="28" width="85" height="70"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="titleEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="33" minY="0.0" maxX="0.0" maxY="25"/>
+                        <state key="normal" title="新浪微博" image="share_platform_sina">
+                            <color key="titleColor" red="0.1647058824" green="0.15686274510000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="shareWeiChat:" destination="AYw-43-3JD" eventType="touchUpInside" id="C0Q-q3-DYE"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="e5E-tT-6Pf" secondAttribute="trailing" id="4F5-HC-lvE"/>
-                    <constraint firstAttribute="bottom" secondItem="e5E-tT-6Pf" secondAttribute="bottom" id="WHk-zI-z1m"/>
-                    <constraint firstItem="e5E-tT-6Pf" firstAttribute="top" secondItem="0nY-Vk-Vru" secondAttribute="top" id="Xz0-pa-a8i"/>
-                    <constraint firstItem="e5E-tT-6Pf" firstAttribute="leading" secondItem="0nY-Vk-Vru" secondAttribute="leading" id="yYx-N5-pWB"/>
+                    <constraint firstItem="t1L-ld-gHx" firstAttribute="width" secondItem="Ccm-OA-Hjz" secondAttribute="width" id="1oX-Ax-Fa2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="e5E-tT-6Pf" secondAttribute="trailing" id="482-p1-f9r"/>
+                    <constraint firstItem="JHg-Ak-QLQ" firstAttribute="height" secondItem="t1L-ld-gHx" secondAttribute="height" id="4eW-qB-3XQ"/>
+                    <constraint firstItem="JHg-Ak-QLQ" firstAttribute="width" secondItem="t1L-ld-gHx" secondAttribute="width" id="4iT-WY-QwF"/>
+                    <constraint firstItem="e5E-tT-6Pf" firstAttribute="top" secondItem="0nY-Vk-Vru" secondAttribute="topMargin" id="FW8-RB-oV1"/>
+                    <constraint firstItem="JHg-Ak-QLQ" firstAttribute="top" secondItem="eWs-lj-RT2" secondAttribute="top" id="FjQ-XF-OmV"/>
+                    <constraint firstItem="Ccm-OA-Hjz" firstAttribute="height" secondItem="eWs-lj-RT2" secondAttribute="height" id="NAd-aq-erm"/>
+                    <constraint firstItem="t1L-ld-gHx" firstAttribute="height" secondItem="Ccm-OA-Hjz" secondAttribute="height" id="Oks-jR-UhM"/>
+                    <constraint firstItem="JHg-Ak-QLQ" firstAttribute="leading" secondItem="0nY-Vk-Vru" secondAttribute="leadingMargin" constant="5" id="QF9-2R-G9q"/>
+                    <constraint firstItem="eWs-lj-RT2" firstAttribute="leading" secondItem="JHg-Ak-QLQ" secondAttribute="trailing" id="RIN-ML-pcy"/>
+                    <constraint firstItem="JHg-Ak-QLQ" firstAttribute="top" secondItem="t1L-ld-gHx" secondAttribute="top" id="S5R-P4-WmM"/>
+                    <constraint firstItem="e5E-tT-6Pf" firstAttribute="leading" secondItem="0nY-Vk-Vru" secondAttribute="leadingMargin" id="SPe-XJ-2eg"/>
+                    <constraint firstItem="Ccm-OA-Hjz" firstAttribute="width" secondItem="eWs-lj-RT2" secondAttribute="width" id="gbf-Iz-3US"/>
+                    <constraint firstItem="JHg-Ak-QLQ" firstAttribute="top" secondItem="Ccm-OA-Hjz" secondAttribute="top" id="l9e-7F-xzq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="t1L-ld-gHx" secondAttribute="trailing" constant="5" id="lVw-Ab-X5W"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="e5E-tT-6Pf" secondAttribute="bottom" id="lcO-kd-j0i"/>
+                    <constraint firstItem="JHg-Ak-QLQ" firstAttribute="centerX" secondItem="0nY-Vk-Vru" secondAttribute="centerX" id="lzZ-os-OEQ"/>
+                    <constraint firstItem="Ccm-OA-Hjz" firstAttribute="leading" secondItem="eWs-lj-RT2" secondAttribute="trailing" id="wtu-QR-VqW"/>
+                    <constraint firstItem="JHg-Ak-QLQ" firstAttribute="centerY" secondItem="0nY-Vk-Vru" secondAttribute="centerY" id="zMr-ur-Be3"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="lzZ-os-OEQ"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="sectionHeaderLbl" destination="ZRG-lg-ld6" id="gIp-If-VeS"/>
@@ -473,8 +534,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="news_share" width="375" height="126"/>
+        <image name="2" width="347" height="546"/>
         <image name="newscontent_drag_arrow" width="26" height="26"/>
+        <image name="newscontent_share_more" width="40" height="40"/>
+        <image name="share_platform_sina" width="40" height="40"/>
         <image name="share_platform_wechattimeline" width="40" height="40"/>
+        <image name="share_platform_yixintimeline" width="40" height="40"/>
     </resources>
 </document>

@@ -16,9 +16,8 @@
 #import "WSPReplyModel.h"
 
 
-
-#define NewsDetailControllerClose (self.tabView.contentOffset.y - (self.tabView.contentSize.height - self.view.bounds.size.height + 55) > (100 - 104))
-@interface WSPNewsDetailViewController() <UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource >
+#define NewsDetailControllerClose (self.tabView.contentOffset.y - (self.tabView.contentSize.height - self.view.bounds.size.height + 55) > (100 - 54))
+@interface WSPNewsDetailViewController() <UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate >
 @property (strong, nonatomic)  UIWebView *webView;
 @property (nonatomic, strong) WSPDetailModel *detailModel;
 @property (nonatomic, weak) IBOutlet UITableView *tabView;
@@ -31,48 +30,82 @@
 
 @implementation WSPNewsDetailViewController
 
-//- (UITableView *)tabView {
-//    if (!_tabView) {
-//        _tabView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStylePlain];
-//        _tabView.delegate = self;
-//        _tabView.dataSource = self;
-//        [self.view addSubview:_tabView];
-//        
-//    }
-//    return _tabView;
-//}
 - (UIWebView *)webView {
     if (!_webView) {
         _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         _webView.scrollView.scrollsToTop = NO;
         _webView.scrollView.scrollEnabled = NO;
-//        _webView.scrollView.delegate = self;
-//        UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scale:)]; // 捏合手势
-//        [_webView addGestureRecognizer:pinchRecognizer];
+        
     }
     return _webView;
 }
-- (void)scale {
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.tabBarController.tabBar.hidden = YES;
     
+    [_webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
+}
+-(void)viewWillDisappear:(BOOL)antimated{
+    [super viewWillDisappear:antimated];
+    [self.webView.scrollView removeObserver:self
+                                    forKeyPath:@"contentSize" context:nil];
+}
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)scale {
     
 //    NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementById('NB-font-size').setAttribute('class', 'NB-%@')",
 //                          fontSize];
     NSString *string = @"document.getElementById(\"NB-font-size\").style.fontSize=\"22px\";";//@"document.getElementById(\"NB-font-size\").setAttribute(font-size:38px;color:#000)";
-//    @""style","width:760px;font-size:18px;color:#000;background:#C7EDCC""
-  NSString *bodyS = [self.webView stringByEvaluatingJavaScriptFromString:string];
     self.sectionHeight = self.webView.scrollView.contentSize.height;
 //    CGFloat height = self.webView.scrollView.contentSize.height;
-    CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"]floatValue];
+//    CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"]floatValue];
     
-        self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"]floatValue] + 30;
-        [self.tabView reloadData];
+//        self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"]floatValue] + 30;
+//        [self.tabView reloadData];
     
     
 //    self.webView.height = height;//self.webView.scrollView.contentSize.height;
 //    WSPLog(@"---%f",height);
 //    [self.tabView reloadData];
-    WSPLog(@"---%@-----%f",bodyS, height);
+//    WSPLog(@"---%@-----%f",bodyS, height);
+    
+    
+    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"修改字体" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"变大",@"正常",@"变小", nil];
+    
+    [action showInView:self.view];
+    
+    
+    
 }
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    NSArray * stringSize = @[@"120%", @"100%", @"90%"];
+    
+    NSArray * size =@[@"22px", @"18px", @"16px"];
+//    NSString *str = [NSString stringWithFormat:@"document.getElementById(\"NB-font-size\").style.fontSize=\"%@\";", size[buttonIndex]];
+    NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@'",stringSize[buttonIndex]];
+    
+    [self.webView stringByEvaluatingJavaScriptFromString:str];
+    self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"]floatValue];
+   CGFloat sizeHeght = self.webView.scrollView.contentSize.height;
+    
+    [self.tabView reloadData];
+    WSPLog(@"----%f---%f",self.webView.height, sizeHeght);
+
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if ([keyPath isEqualToString:@"contentSize"]) {
+       CGFloat webViewHeight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
+        
+        self.webView.height = webViewHeight + 20;
+    }
+}
+
 - (NSMutableArray *)replyModels {
     if (!_replyModels) {
         _replyModels = [NSMutableArray array];
@@ -82,8 +115,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any things for me
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(scale)];
     
     self.webView.backgroundColor = [UIColor whiteColor];
     self.webView.delegate = self;
@@ -191,7 +222,9 @@
         NSString *onload = @"this.onclick = function() {"
         "  window.location.href = 'sx:src=' +this.src;"
         "};";
-        [imgHtml appendFormat:@"<img onload=\"%@\" width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
+        
+        [imgHtml appendFormat:@"<img onload=\"%@\"  width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
+//        [UIImage imageNamed:@"4"];
         // 结束标记
         [imgHtml appendString:@"</div>"];
         // 替换标记
@@ -211,17 +244,21 @@
      type="application/x-shockwave-flash">
      </embed>
      */
+//    NSString *videoOnload = @"this.onclick = function() {window.location.href = 'sx:videosrc=' +this.src;};";
+    NSString *videoOnload = @"this.onclick = function() {"
+    "  window.location.href = 'sx:videosrc=' +this.src;"
+    "};";
+    
     for (video *vedios in self.detailModel.video) {
-         NSMutableString *vedioHtml = [NSMutableString string];
-//        [vedioHtml appendString:@"<video width=\"320\" height=\"240\" controls=\"controls\" autoplay=\"autoplay\">"];
-//        [vedioHtml appendFormat:@"<source src=\"%@\" type=\"video/mp4\" />",vedios.url_mp4];
-////        [vedioHtml appendFormat:@"<object data=\"%@\" width=\"320\" height=\"240\"><embed width=\"320\" height=\"240\" src=\"/i/movie.swf\" />", vedios.url_mp4];
-////        [vedioHtml appendString:@"</object>"];
-//        [vedioHtml appendString:@"</video>"];
-        [vedioHtml appendFormat:@"<embed src=\"%@\" width=\"360\" height=\"200\"type=\"application/x-shockwave-flash\">",vedios.url_mp4];
-        [vedioHtml appendString:@" </embed>"];
-        // 替换标记
-        [body replaceOccurrencesOfString:vedios.ref withString:vedioHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
+        
+        
+        [body replaceOccurrencesOfString:vedios.ref withString:[NSString stringWithFormat:@"<video onload=\"%@\" width=\"%f\" height=\"200\" poster=\"%@\"><source src=\"%@\"></video>",videoOnload ,_webView.bounds.size.width - 16,vedios.cover,vedios.url_mp4] options:0 range:NSMakeRange(0, [body length])];
+        
+//         NSMutableString *vedioHtml = [NSMutableString string];
+//        [vedioHtml appendFormat:@"<embed src=\"%@\" width=\"360\" height=\"200\"type=\"application/x-shockwave-flash\">",vedios.url_mp4];
+//        [vedioHtml appendString:@" </embed>"];
+//        // 替换标记
+//        [body replaceOccurrencesOfString:vedios.ref withString:vedioHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
     }
     return body;
 }
@@ -237,17 +274,19 @@
         [self openImageInApp:src];
         return NO;
     }
+    if ([url containsString:@"sx:videosrc"]) {
+        WSPLog(@"视频资源----%@",url);
+        return NO;
+    }
     return YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    self.webView.height = self.webView.scrollView.contentSize.height;
+//    self.webView.height = self.webView.scrollView.contentSize.height;
+    self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue] + 20;
 //    self.sectionHeight = self.webView.scrollView.contentSize.height;
     [self.tabView reloadData];
     WSPLog(@"---%f",self.webView.height);
-//    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '40%'"];//修改百分比即可
-//    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=self.view.frame.size.width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\""];
-//    [webView stringByEvaluatingJavaScriptFromString:meta];//(initial-scale是初始缩放比,minimum-scale=1.0最小缩放比,maximum-scale=5.0最大缩放比,user-scalable=yes是否支持缩放)
 }
 #pragma mark - ******************** 保存到相册方法
 - (void)savePictureToAlbum:(NSString *)src
@@ -470,23 +509,26 @@
     }
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    //    NSLog(@"松手了%f--%f",self.tableView.contentOffset.y,self.tableView.contentSize.height - SXSCREEN_H + 55);
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (NewsDetailControllerClose) {
+        WSPLog(@"----%d",NewsDetailControllerClose);
+        
         UIImageView *imgV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         imgV.image = [self getImage];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window addSubview:imgV];
         [self.navigationController popViewControllerAnimated:NO];
-        imgV.alpha = 1.0;
+        
         [UIView animateWithDuration:0.3 animations:^{
-            imgV.frame = CGRectMake(0, self.view.bounds.size.height/2, self.view.bounds.size.width/2, 0);
-            imgV.alpha = 0.0;
+            imgV.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height/2, [UIScreen mainScreen].bounds.size.width/2, 10);
+            if (imgV) {
+                imgV.alpha = 0.0;
+            }
+            
         } completion:^(BOOL finished) {
             [imgV removeFromSuperview];
         }];
-    }
+    } 
 }
 - (UIImage *)getImage {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height), NO, 1.0);
@@ -496,5 +538,8 @@
     return image;
 }
 
+- (void)dealloc {
+    WSPLog(@"----%s",__func__);
+}
 
 @end

@@ -18,9 +18,14 @@
 #import "WSPPhotoModel.h"
 #import "WSPPhotoViewController.h"
 
-@interface WSPTableViewController () <WSPHomeCellDelegate>
+#import "WSPPhotoRequest.h"
+#import "WSPPhotoModel.h"
+
+@interface WSPTableViewController () <WSPHomeCellDelegate, MWPhotoBrowserDelegate>
 @property (nonatomic, strong) NSMutableArray *newsArrayList;
 @property (nonatomic, strong) WSPHomeRequest *requestHome;
+
+@property (nonatomic, strong) NSArray *photoName;
 @end
 
 @implementation WSPTableViewController
@@ -231,14 +236,80 @@
 - (void)cycleCell:(WSPHomeCell *)cycleCell didSelectItemAtIndex:(NSInteger)index {
     WSPLog(@"---%@",cycleCell.NewsModel.imgextra);
     NSDictionary *dict = cycleCell.NewsModel.ads[index];
-    WSPPhotoViewController *autoPhoto = [[WSPPhotoViewController alloc] init];
-        
-    autoPhoto.photosetID = dict[@"url"];//cycleCell.NewsModel.photosetID;
-        
-    [self.navigationController pushViewController:autoPhoto animated:YES];
+//    WSPPhotoViewController *autoPhoto = [[WSPPhotoViewController alloc] init];
     
+//    autoPhoto.photosetID = dict[@"url"];//cycleCell.NewsModel.photosetID;
+//        
+//    [self.navigationController pushViewController:autoPhoto animated:YES];
+    
+    [self requestId:dict[@"url"]];
     
     
 }
+- (void)requestId:(NSString *)urlID {
+    WSPPhotoRequest *requestPhoto = [WSPPhotoRequest new];
+    requestPhoto.photoID = urlID;
+    
+    [requestPhoto startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+        
+        NSDictionary *resbonseJson = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingMutableContainers error:nil];
+        WSPPhotoModel *photoModel = [WSPPhotoModel mj_objectWithKeyValues:resbonseJson];
+        
+        
+        
+        
+        NSMutableArray *photoName = [NSMutableArray array];
+        //        NSMutableArray *photoString = [NSMutableArray array];
+        
+        
+        
+        BOOL displayActionButton = YES;
+        BOOL displaySelectionButtons = NO;
+        BOOL displayNavArrows = NO;
+        BOOL enableGrid = YES;
+        BOOL startOnGrid = NO;
+        BOOL autoPlayOnAppear = NO;
+        
+        //        NSMutableArray *photoDes = [NSMutableArray array];
+        for (Photos *p  in photoModel.photos) {
+            MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:p.imgurl]];
+            photo.caption = p.note;
+            // Photos
+            [photoName addObject:photo];
+            //            [photoName addObject:p.imgurl];
+            //            [photoString addObject:p.note];
+        }
+        self.photoName = photoName;
+        
+        // Create browser
+        MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        browser.displayActionButton = displayActionButton;
+        browser.displayNavArrows = displayNavArrows;
+        browser.displaySelectionButtons = displaySelectionButtons;
+        browser.alwaysShowControls = displaySelectionButtons;
+        browser.zoomPhotosToFill = YES;
+        browser.enableGrid = enableGrid;
+        browser.startOnGrid = startOnGrid;
+        browser.enableSwipeToDismiss = NO;
+        browser.autoPlayOnAppear = autoPlayOnAppear;
+        [browser setCurrentPhotoIndex:0];
+        [self.navigationController pushViewController:browser animated:YES];
+    } failure:^(__kindof YTKBaseRequest *request) {
+        
+    }];
+}
+
+#pragma mark - MWPhotoBrowserDelegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return self.photoName.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < self.photoName.count)
+        return [self.photoName objectAtIndex:index];
+    return nil;
+}
+
 
 @end

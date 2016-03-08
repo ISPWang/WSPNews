@@ -67,7 +67,10 @@
     
 }
 
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 
 /** 添加子控制器 */
 - (void)addController

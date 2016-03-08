@@ -77,7 +77,7 @@
     self.userLocationLbl.text = [NSString stringWithFormat:@"%@ %@",replyModel.address,replyModel.rtime];
     self.replyDetail.text = replyModel.say;
     self.goodLbl.text = [NSString stringWithFormat:@"%@顶",replyModel.suppose];
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:replyModel.icon] placeholderImage:[UIImage imageNamed:@"comment_profile_mars"]];
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:replyModel.icon] placeholderImage:[UIImage imageNamed:@"pic_2"]];
     self.iconImg.layer.cornerRadius = self.iconImg.width/2;
     self.iconImg.layer.masksToBounds = YES;
     self.iconImg.layer.shouldRasterize = YES;
@@ -107,5 +107,23 @@
 
 - (IBAction)shareWeiChat:(id)sender {
     WSPLog(@"-分享---%@",sender);
+    UIButton *shareButton = (UIButton *)sender;
+    switch (shareButton.tag) {
+        case 100:
+            WSPLog(@"-分享---微信");
+            break;
+        case 101:
+            WSPLog(@"-分享---微博");
+            break;
+        case 102:
+            WSPLog(@"-分享---易信");
+            break;
+        case 103:
+            WSPLog(@"-分享---更多");
+            break;
+            
+        default:
+            break;
+    }
 }
 @end
