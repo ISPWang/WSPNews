@@ -241,8 +241,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqn-tT-2uH">
-                                        <rect key="frame" x="8" y="26" width="9" height="22"/>
-                                        <state key="normal" image="backIconTypeTwo"/>
+                                        <rect key="frame" x="8" y="27" width="41" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-5" maxY="0.0"/>
+                                        <state key="normal" title="返回" image="backIconTypeTwo">
+                                            <color key="titleColor" red="0.1764705882" green="0.0" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="backBtnClick:" destination="Znw-GK-Uob" eventType="touchUpInside" id="WFv-2B-GzM"/>
                                         </connections>
@@ -263,6 +267,16 @@
                                             <constraint firstAttribute="height" constant="1" id="PYV-OE-UO4"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgy-ch-ZDp">
+                                        <rect key="frame" x="487" y="21" width="64" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="夜间模式">
+                                            <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nightMode:" destination="Znw-GK-Uob" eventType="touchUpInside" id="1tw-6y-Tbt"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -270,9 +284,11 @@
                                     <constraint firstItem="ShC-ed-kA4" firstAttribute="leading" secondItem="qzm-ZY-7Vq" secondAttribute="leading" id="3Ut-0l-cZI"/>
                                     <constraint firstItem="3zx-1H-yL7" firstAttribute="centerY" secondItem="qzm-ZY-7Vq" secondAttribute="centerY" constant="10" id="6fH-7l-hOi"/>
                                     <constraint firstAttribute="height" constant="55" id="KpF-li-Ezs"/>
+                                    <constraint firstItem="Dgy-ch-ZDp" firstAttribute="centerY" secondItem="3zx-1H-yL7" secondAttribute="centerY" id="L4k-1m-GXf"/>
                                     <constraint firstAttribute="trailing" secondItem="ShC-ed-kA4" secondAttribute="trailing" id="MZl-s6-5LM"/>
                                     <constraint firstItem="xqn-tT-2uH" firstAttribute="leading" secondItem="qzm-ZY-7Vq" secondAttribute="leading" constant="8" id="RH0-VI-rbF"/>
                                     <constraint firstAttribute="bottom" secondItem="ShC-ed-kA4" secondAttribute="bottom" id="aVi-fs-sGI"/>
+                                    <constraint firstItem="3zx-1H-yL7" firstAttribute="leading" secondItem="Dgy-ch-ZDp" secondAttribute="trailing" constant="8" id="pqX-zl-d6S"/>
                                     <constraint firstItem="xqn-tT-2uH" firstAttribute="centerY" secondItem="qzm-ZY-7Vq" secondAttribute="centerY" constant="10" id="sY1-5J-QpW"/>
                                 </constraints>
                             </view>
@@ -300,7 +316,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" id="ZBl-k7-TV5"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="xqn-tT-2uH" id="JfX-3K-96E"/>
                         <outlet property="tabView" destination="nDn-Y6-UiI" id="wOa-P7-eM8"/>
+                        <outlet property="topBarView" destination="qzm-ZY-7Vq" id="PjA-O9-3Gx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvz-Gb-U9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -323,6 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHC-eo-QNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="167" y="517"/>
         </scene>
     </scenes>
     <resources>

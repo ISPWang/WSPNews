@@ -22,6 +22,31 @@
 #define WSPLog(...)
 #endif
 
+#define RGB(c,a)    [UIColor colorWithRed:((c>>16)&0xFF)/256.0  green:((c>>8)&0xFF)/256.0   blue:((c)&0xFF)/256.0   alpha:a]
+
+#define kSetting                   [WSPThemeManger manager]
+
+#define kNavigationBarTintColor    kSetting.navigationBarTintColor
+#define kNavigationBarColor        kSetting.navigationBarColor
+#define kNavigationBarLineColor    kSetting.navigationBarLineColor
+
+#define kBackgroundColorWhite      kSetting.backgroundColorWhite
+#define kBackgroundColorWhiteDark  kSetting.backgroundColorWhiteDark
+
+#define kLineColorBlackDark        kSetting.lineColorBlackDark
+#define kLineColorBlackLight       kSetting.lineColorBlackLight
+
+#define kFontColorBlackDark        kSetting.fontColorBlackDark
+#define kFontColorBlackMid         kSetting.fontColorBlackMid
+#define kFontColorBlackLight       kSetting.fontColorBlackLight
+#define kFontColorBlackBlue        kSetting.fontColorBlackBlue
+
+#define kColorBlue                 kSetting.colorBlue
+#define kCellHighlightedColor      kSetting.cellHighlightedColor
+#define kMenuCellHighlightedColor  kSetting.menuCellHighlightedColor
+
+#define kCurrentTheme              kSetting.theme
+
 #import "Masonry.h"
 
 #import "MJRefresh.h"
@@ -32,11 +57,15 @@
 
 #import "MWPhotoBrowser.h"
 
+#import "WSPThemeManger.h"
+
 #define kScreen_Bounds [UIScreen mainScreen].bounds
 #define kScreen_Height [UIScreen mainScreen].bounds.size.height
 #define kScreen_Width [UIScreen mainScreen].bounds.size.width
 
+static NSString * const kThemeDidChangeNotification = @"ThemeDidChangeNotification";
 
 @interface WSPConst : NSObject
+
 
 @end

@@ -47,7 +47,8 @@
     self.smallScrollView.scrollsToTop = NO;
     self.bigScrollView.scrollsToTop = NO;
     self.bigScrollView.delegate = self;
-    
+    self.smallScrollView.backgroundColor = kBackgroundColorWhite;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
     [self addController];
     [self addLable];
     
@@ -230,7 +231,14 @@
         WSPLog(@"----shibai");
     }];
 }
+#pragma mark - notifications
 
+- (void)didReceiveThemeChangeNotification {
+    self.smallScrollView.backgroundColor = kBackgroundColorWhite;
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 /*
 #pragma mark - Navigation
 

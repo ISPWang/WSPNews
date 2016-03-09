@@ -57,6 +57,7 @@
         [self.tableView reloadData];
     }
     
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
 }
 
 #pragma mark - /************************* 刷新数据 ***************************/
@@ -311,5 +312,11 @@
     return nil;
 }
 
+- (void)didReceiveThemeChangeNotification {
+    
+    self.tableView.backgroundColor = kBackgroundColorWhite;
+    
+    [self.tableView reloadData];
+}
 
 @end

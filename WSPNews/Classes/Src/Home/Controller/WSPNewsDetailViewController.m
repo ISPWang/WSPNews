@@ -21,58 +21,44 @@
 @property (strong, nonatomic)  UIWebView *webView;
 @property (nonatomic, strong) WSPDetailModel *detailModel;
 @property (nonatomic, weak) IBOutlet UITableView *tabView;
+@property (weak, nonatomic) IBOutlet UIView *topBarView;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property(nonatomic,strong) NSMutableArray *replyModels;
 @property (nonatomic, strong) NSArray *sameNews;
 @property (nonatomic, strong) NSArray *keywordSearch;
 @property (nonatomic, strong) WSPDetailBottomCell *closeCell;
 @property (nonatomic, assign) CGFloat sectionHeight;
+
+
+@property (nonatomic, strong) UIActionSheet *themeAction;
+
 @end
 
 @implementation WSPNewsDetailViewController
-
+#pragma mark - lazyLoads
 - (UIWebView *)webView {
     if (!_webView) {
         _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         _webView.scrollView.scrollsToTop = NO;
         _webView.scrollView.scrollEnabled = NO;
+        _webView.scrollView.backgroundColor = kBackgroundColorWhite;
         
     }
     return _webView;
 }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    self.tabBarController.tabBar.hidden = YES;
-    
-    [_webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
-}
--(void)viewWillDisappear:(BOOL)antimated{
-    [super viewWillDisappear:antimated];
-    [self.webView.scrollView removeObserver:self
-                                    forKeyPath:@"contentSize" context:nil];
-}
+#pragma mark - Actions
 - (IBAction)backBtnClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)nightMode:(id)sender {
+    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"夜间模式" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"白天",@"夜晚", nil];
+    
+    [action showInView:self.view];
+    self.themeAction = action;
+    
+}
 - (IBAction)scale {
-    
-//    NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementById('NB-font-size').setAttribute('class', 'NB-%@')",
-//                          fontSize];
-    NSString *string = @"document.getElementById(\"NB-font-size\").style.fontSize=\"22px\";";//@"document.getElementById(\"NB-font-size\").setAttribute(font-size:38px;color:#000)";
-    self.sectionHeight = self.webView.scrollView.contentSize.height;
-//    CGFloat height = self.webView.scrollView.contentSize.height;
-//    CGFloat height = [[self.webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"]floatValue];
-    
-//        self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"]floatValue] + 30;
-//        [self.tabView reloadData];
-    
-    
-//    self.webView.height = height;//self.webView.scrollView.contentSize.height;
-//    WSPLog(@"---%f",height);
-//    [self.tabView reloadData];
-//    WSPLog(@"---%@-----%f",bodyS, height);
-    
     
     UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"修改字体" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"变大",@"正常",@"变小", nil];
     
@@ -81,20 +67,36 @@
     
     
 }
+#pragma mark - ActionSheetDelegates
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    NSArray * stringSize = @[@"120%", @"100%", @"90%"];
-    
-    NSArray * size =@[@"22px", @"18px", @"16px"];
-//    NSString *str = [NSString stringWithFormat:@"document.getElementById(\"NB-font-size\").style.fontSize=\"%@\";", size[buttonIndex]];
-    NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@'",stringSize[buttonIndex]];
-    
-    [self.webView stringByEvaluatingJavaScriptFromString:str];
-    self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"]floatValue];
-   CGFloat sizeHeght = self.webView.scrollView.contentSize.height;
-    
-    [self.tabView reloadData];
-    WSPLog(@"----%f---%f",self.webView.height, sizeHeght);
+    if (actionSheet == self.themeAction) {
+       
+        if (buttonIndex == 0) {
+             WSPLog(@"白天模式");
+            kSetting.theme = WSPThemeDefault;
+        } else if(buttonIndex == 1) {
+             WSPLog(@"夜间模式");
+            kSetting.theme = WSPThemeNight;
+        }
+    } else {
+        
+        NSArray * stringSize = @[@"120%", @"100%", @"90%"];
+        
+        NSArray * size =@[@"22px", @"18px", @"16px"];
+        if (buttonIndex >= stringSize.count) {
+            return;
+        }
+    //    NSString *str = [NSString stringWithFormat:@"document.getElementById(\"NB-font-size\").style.fontSize=\"%@\";", size[buttonIndex]];
+        NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@'",stringSize[buttonIndex]];
+        
+        [self.webView stringByEvaluatingJavaScriptFromString:str];
+        self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"]floatValue];
+       CGFloat sizeHeght = self.webView.scrollView.contentSize.height;
+        
+        [self.tabView reloadData];
+        WSPLog(@"----%f---%f",self.webView.height, sizeHeght);
+    }
 
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -103,6 +105,7 @@
        CGFloat webViewHeight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
         
         self.webView.height = webViewHeight + 20;
+        [self webKitFillBackGroundColor];
     }
 }
 
@@ -115,8 +118,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any things for me
-    
-    self.webView.backgroundColor = [UIColor whiteColor];
+    [self configerBackGroundColor];
     self.webView.delegate = self;
     WSPNewsDeatilRequest *requestHome = [[WSPNewsDeatilRequest alloc] init];
     
@@ -141,6 +143,21 @@
         WSPLog(@"加载失败 error");
     }];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.tabBarController.tabBar.hidden = YES;
+    
+    [_webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
+}
+-(void)viewWillDisappear:(BOOL)antimated{
+    [super viewWillDisappear:antimated];
+    [self.webView.scrollView removeObserver:self
+                                 forKeyPath:@"contentSize" context:nil];
 }
 - (void)sendRequestWithUrl2 {
     WSPReplyRequest *requestHome = [[WSPReplyRequest alloc] init];
@@ -223,8 +240,8 @@
         "  window.location.href = 'sx:src=' +this.src;"
         "};";
         
-        [imgHtml appendFormat:@"<img onload=\"%@\"  width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
-//        [UIImage imageNamed:@"4"];
+//        [imgHtml appendFormat:@"<img onload=\"%@\"  width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
+        [imgHtml appendFormat:@"<img class=\"img-parent\" id=\"img\" onload=\"%@\" src=\"%@\">",onload,detailImgModel.src];
         // 结束标记
         [imgHtml appendString:@"</div>"];
         // 替换标记
@@ -285,6 +302,28 @@
 //    self.webView.height = self.webView.scrollView.contentSize.height;
     self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue] + 20;
 //    self.sectionHeight = self.webView.scrollView.contentSize.height;
+    NSString *funJs = @"<script type=\"text/javascript\"> \
+    (function (){ \
+    var imageList = document.getElementsByTagName(\"img\");\
+    for(var i = 0; i < imageList.length; i++){ \
+    var image = imageList[i]; \
+    image.href = image.src; \
+    image.src = \"http://y2.ifengimg.com/auto/image/2016/0302/033330702_240.jpg\"; \
+    image.alt = \"点击加载图片\"; \
+    image.onclick = function(){ \
+    if(this.src != this.href) {\
+    this.src = this.href; \
+    return false; \
+    } else { \
+    document.location = this.src; \
+    return false; \
+    } \
+    } \
+    } \
+    }()); \
+    </script>";
+    
+    [self.webView stringByEvaluatingJavaScriptFromString:funJs];
     [self.tabView reloadData];
     WSPLog(@"---%f",self.webView.height);
 }
@@ -335,10 +374,22 @@
         return self.webView;
     }else if (section == 1){
         WSPDetailBottomCell *head = [WSPDetailBottomCell theSectionHeaderCell];
+//        head.backgroundColor = kBackgroundColorWhite;
+        head.contentView.backgroundColor = kBackgroundColorWhite;
+        if (head.contentView.subviews) {
+            UIView *subView = head.contentView.subviews[0];
+            subView.backgroundColor = kBackgroundColorWhite;
+        }
         head.sectionHeaderLbl.text = @"热门跟帖";
         return head;
     }else if (section == 2){
         WSPDetailBottomCell *head = [WSPDetailBottomCell theSectionHeaderCell];
+        head.backgroundColor = kBackgroundColorWhite;
+        head.contentView.backgroundColor = kBackgroundColorWhite;
+        if (head.contentView.subviews) {
+            UIView *subView = head.contentView.subviews[0];
+            subView.backgroundColor = kBackgroundColorWhite;
+        }
         head.sectionHeaderLbl.text = @"相关新闻";
         return head;
     }
@@ -364,7 +415,7 @@
         self.closeCell = closeCell;
         return closeCell;
     }
-    return [[UIView alloc]init];
+    return nil;//[[UIView alloc]init];
 }
 
 - (CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -411,10 +462,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return [WSPDetailBottomCell theShareCell];
+        WSPDetailBottomCell *shareCell = [WSPDetailBottomCell theShareCell];
+        shareCell.contentView.backgroundColor = kBackgroundColorWhite;
+        if (shareCell.contentView.subviews) {
+            UIView *subView = shareCell.contentView.subviews[0];
+            subView.backgroundColor = kBackgroundColorWhite;
+        }
+        return shareCell;
     }else if (indexPath.section == 1){
         if (indexPath.row == self.replyModels.count) {
             WSPDetailBottomCell *foot = [WSPDetailBottomCell theSectionBottomCell];
+            foot.contentView.backgroundColor = kBackgroundColorWhite;
+            if (foot.contentView.subviews) {
+                UIView *subView = foot.contentView.subviews[0];
+                subView.backgroundColor = kBackgroundColorWhite;
+            }
             return foot;
         }else{
             WSPDetailBottomCell *hotreply = [WSPDetailBottomCell theHotReplyCellWithTableView:tableView];
@@ -424,10 +486,12 @@
     }else if (indexPath.section == 2){
         if (indexPath.row == 0) {
             WSPDetailBottomCell *cell = [WSPDetailBottomCell theKeywordCell];
+            cell.contentView.backgroundColor = kBackgroundColorWhite;
             [cell.contentView addSubview:[self addKeywordButton]];
             return cell;
         }else{
             WSPDetailBottomCell *other = [WSPDetailBottomCell theContactNewsCell];
+           
             other.sameNewsEntity = self.sameNews[indexPath.row];
             return other;
         }
@@ -478,10 +542,11 @@
 {
     CGFloat maxRight = 20;
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 60)];
+    view.backgroundColor = kBackgroundColorWhite;
     for (int i = 0;i<self.keywordSearch.count ; ++i) {
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(maxRight, 10, 0, 0)];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
-        [button setTitleColor:[UIColor colorWithRed:74/255 green:133/255 blue:198/255 alpha:1]/*SXRGBColor(74, 133, 198)*/ forState:UIControlStateNormal];
+        [button setTitleColor:kFontColorBlackDark/*[UIColor colorWithRed:74/255 green:133/255 blue:198/255 alpha:1]*/ forState:UIControlStateNormal];
         [button setTitle:self.keywordSearch[i][@"word"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"choose_city_normal"] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"choose_city_highlight"] forState:UIControlStateHighlighted];
@@ -540,6 +605,33 @@
 
 - (void)dealloc {
     WSPLog(@"----%s",__func__);
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Notifications
+
+- (void)didReceiveThemeChangeNotification {
+    
+    [self configerBackGroundColor];
+    [self webKitFillBackGroundColor];
+    [self.tabView reloadData];
+}
+// 颜色切换
+- (void)webKitFillBackGroundColor {
+    if (kCurrentTheme == WSPThemeDefault) {
+        [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#FFFFFF'"];
+        [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextFillColor= '#666666'"];
+    } else {
+        [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#2E2E2E'"];
+        [_webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.webkitTextFillColor= '#989898'"];
+    }
+}
+- (void)configerBackGroundColor {
+    self.tabView.backgroundColor = kBackgroundColorWhite;
+    self.webView.backgroundColor = kBackgroundColorWhite;
+    self.view.backgroundColor    = kBackgroundColorWhite;
+    self.topBarView.backgroundColor = kBackgroundColorWhite;
+    [self.backButton setTitleColor:kFontColorBlackMid forState:UIControlStateNormal];
 }
 
 @end

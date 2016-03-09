@@ -35,6 +35,9 @@
     _NewsModel = NewsModel;
     
     //    [self.imgIcon sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgsrc]];
+    self.backgroundColor             = kBackgroundColorWhite;
+    self.contentView.backgroundColor = kBackgroundColorWhite;
+    self.wspTitle.textColor          = kFontColorBlackMid;
     
     [self.imageIcon sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgsrc] placeholderImage:[UIImage imageNamed:@"302"]];
     self.wspTitle.text = self.NewsModel.title;

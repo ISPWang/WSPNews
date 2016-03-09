@@ -46,6 +46,15 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if (kSetting.themeAutoChange && ![[NSUserDefaults standardUserDefaults] objectForKey:@"Theme"]) { // 根据屏幕亮度， 去处理是不是自动夜间模式
+        CGFloat brightness = [UIScreen mainScreen].brightness;
+        
+        if (brightness < 0.2) {
+            kSetting.theme = WSPThemeNight;
+        } else {
+            kSetting.theme = WSPThemeDefault;
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

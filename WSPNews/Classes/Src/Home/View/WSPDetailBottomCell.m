@@ -26,6 +26,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *closeImg;
 @property (strong, nonatomic) IBOutlet UILabel *closeLbl;
+@property (weak, nonatomic) IBOutlet UIView *backGroundView;
+
 @end
 
 @implementation WSPDetailBottomCell
@@ -35,6 +37,7 @@
 }
 
 + (instancetype)theSectionHeaderCell{
+    
     return [[NSBundle mainBundle] loadNibNamed:@"WSPDetailBottomCell" owner:nil options:nil][1];
 }
 
@@ -68,6 +71,16 @@
 {
     _replyModel = replyModel;
     self.userLbl.text = replyModel.name;
+    self.userLocationLbl.textColor = kFontColorBlackDark;
+    self.goodLbl.textColor = kFontColorBlackDark;
+    self.replyDetail.textColor = kFontColorBlackDark;
+    self.backgroundColor = kBackgroundColorWhite;
+    self.contentView.backgroundColor = kBackgroundColorWhite;
+    
+    if (self.contentView.subviews) {
+        UIView *subView = self.contentView.subviews[0];
+        subView.backgroundColor = kBackgroundColorWhite;
+    }
     
     NSRange range = [replyModel.address rangeOfString:@"&"];
     if (range.location != NSNotFound) {
@@ -85,6 +98,18 @@
 
 - (void)setSameNewsEntity:(WSPReleatedModel *)sameNewsEntity {
     _sameNewsEntity = sameNewsEntity;
+    
+    self.newsTitleLbl.textColor = kFontColorBlackDark;
+    self.newsFromLbl.textColor = kFontColorBlackDark;
+    self.newsTimeLbl.textColor = kFontColorBlackDark;
+    self.backgroundColor = kBackgroundColorWhite;
+    self.contentView.backgroundColor = kBackgroundColorWhite;
+    if (self.contentView.subviews) {
+        UIView *subView = self.contentView.subviews[0];
+        subView.backgroundColor = kBackgroundColorWhite;
+    }
+   
+    
     [self.newsIcon sd_setImageWithURL:[NSURL URLWithString:sameNewsEntity.imgsrc] placeholderImage:[UIImage imageNamed:@"303"]];
     self.newsIcon.layer.cornerRadius = 2;
     self.newsIcon.layer.masksToBounds = YES;
@@ -103,6 +128,12 @@
     _iSCloseing = iSCloseing;
     self.closeImg.image = [UIImage imageNamed:iSCloseing ? @"newscontent_drag_return" : @"newscontent_drag_arrow"];
     self.closeLbl.text = iSCloseing ? @"松手关闭当前页" : @"上拉关闭当前页" ;
+    self.backgroundColor = kBackgroundColorWhite;
+    self.contentView.backgroundColor = kBackgroundColorWhite;
+    
+//    self.backGroundView.backgroundColor = kBackgroundColorWhite;
+    self.backGroundView.backgroundColor = [UIColor clearColor];
+    self.closeLbl.textColor = kFontColorBlackDark;
 }
 
 - (IBAction)shareWeiChat:(id)sender {

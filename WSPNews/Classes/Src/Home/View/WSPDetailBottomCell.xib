@@ -99,6 +99,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="backGroundView" destination="ytb-dH-rbg" id="PkF-B5-jeD"/>
                 <outlet property="sectionHeaderLbl" destination="ZRG-lg-ld6" id="gIp-If-VeS"/>
             </connections>
             <point key="canvasLocation" x="313.5" y="156"/>
@@ -218,7 +219,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xo4-Uy-fEO" firstAttribute="top" secondItem="ytb-dH-rbg" secondAttribute="top" id="JdA-BL-kVw"/>
                             <constraint firstAttribute="trailing" secondItem="G5f-lb-Rv9" secondAttribute="trailing" id="Mvs-7y-sfs"/>
@@ -311,7 +312,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Jdo-g6-dEN" firstAttribute="top" secondItem="YVY-Ws-IzF" secondAttribute="bottom" constant="2" id="2HQ-hp-e9q"/>
                             <constraint firstAttribute="trailing" secondItem="8JF-J5-K9I" secondAttribute="trailing" id="517-Os-ia6"/>
@@ -336,7 +337,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="QAq-5K-YhM" firstAttribute="leading" secondItem="JtY-xY-c44" secondAttribute="leading" constant="10" id="Jvc-pz-fxr"/>
                     <constraint firstAttribute="bottom" secondItem="QAq-5K-YhM" secondAttribute="bottom" id="ST4-pp-iWI"/>
@@ -411,7 +412,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="6q3-z8-jbp" secondAttribute="bottom" id="0wy-2r-iUh"/>
                             <constraint firstItem="Yqx-Ym-fCE" firstAttribute="bottom" secondItem="eyD-aM-po4" secondAttribute="bottom" id="196-iD-2uk"/>
@@ -434,7 +435,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="RGc-L4-tGz" firstAttribute="leading" secondItem="G3z-2w-xX1" secondAttribute="leading" constant="10" id="CVN-bZ-Jn7"/>
                     <constraint firstAttribute="trailing" secondItem="RGc-L4-tGz" secondAttribute="trailing" constant="10" id="Yq5-j1-2EV"/>
@@ -442,6 +443,7 @@
                     <constraint firstItem="RGc-L4-tGz" firstAttribute="top" secondItem="G3z-2w-xX1" secondAttribute="top" id="z4P-gH-d1y"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="newsFromLbl" destination="Yqx-Ym-fCE" id="qab-Pb-3zw"/>
                 <outlet property="newsIcon" destination="eyD-aM-po4" id="DJK-dA-3uX"/>
