@@ -17,16 +17,18 @@
     
 }
 
-.img-parent {
+.image-parent {
     text-align:center;
     margin-bottom:10px;
     max-width:100%;
-    height:auto;
+/*    height:auto;*/
 
 }
 .subtitle {
     font-size: 18px;
-    margin-left: 5px;
+/*    font-family: ".SFUIText-Regular";*/
     color: #666;
-    margin-right: 5px;
+/*    text-align: center;*/
+    margin-left: 10px;
+    margin-right: 10px
 }

@@ -31,6 +31,7 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - SSZipArchive (1.1)
   - YTKNetwork (0.6.0):
     - AFDownloadRequestOperation (~> 2.0)
     - AFNetworking (~> 2.0)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - MJRefresh
   - SDCycleScrollView (~> 1.6)
   - SDWebImage
+  - SSZipArchive (~> 1.1)
   - YTKNetwork
 
 SPEC CHECKSUMS:
@@ -53,6 +55,7 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDCycleScrollView: a002d85b30cfa9d0ac74069cd3973ca19ff4f22f
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  SSZipArchive: de3d215ab73f87db627f81f2ce24f1731e3886c3
   YTKNetwork: 988660d5fab310a55895239751ecfa74c3224a77
 
 COCOAPODS: 0.39.0

@@ -16,8 +16,14 @@
 #import "WSPReplyModel.h"
 
 
+#import "WSPDownLoadFontManager.h"
+
+#import "ZipArchive.h"
+
+#import <CoreText/CoreText.h>
+
 #define NewsDetailControllerClose (self.tabView.contentOffset.y - (self.tabView.contentSize.height - self.view.bounds.size.height + 55) > (100 - 54))
-@interface WSPNewsDetailViewController() <UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate >
+@interface WSPNewsDetailViewController() <UIWebViewDelegate, UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIAlertViewDelegate >
 @property (strong, nonatomic)  UIWebView *webView;
 @property (nonatomic, strong) WSPDetailModel *detailModel;
 @property (nonatomic, weak) IBOutlet UITableView *tabView;
@@ -58,6 +64,65 @@
     self.themeAction = action;
     
 }
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    WSPLog(@"----%ld",buttonIndex);
+    if (buttonIndex == 0) {
+        kSetting.fontType  = WSPFontTypeSystem;
+    } else if (buttonIndex == 1) {
+         kSetting.fontType = WSPFontTypeDFWaWaW5;
+    }
+}
+- (IBAction)updateFonts:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    
+    UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"修改字体" message:@"" delegate:self cancelButtonTitle:@"系统" otherButtonTitles:@"娃娃体", nil];
+    [alertV show];
+    
+    
+    
+    NSString *fontPath =  [[self filePath:@"regular"] stringByAppendingString:@"/dfgb_ww5/regular.ttf"];
+    
+    
+//
+    if ([[NSFileManager defaultManager] fileExistsAtPath:fontPath]) {
+        btn.titleLabel.font = [UIFont fontWithName:KShowFontName size:15];//[UIFont fontWithName:[self customFontWithPath:fontPath size:15] size:15];
+        return;
+    }
+    WSPDownLoadFontManager *down = [[WSPDownLoadFontManager alloc] initWithFileName:@"dfgb_ww5.zip"];
+    [down startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+        WSPLog(@"---%@---%@",request.responseString,[self filePath:@"dfgb_ww5.zip"]);
+        NSString *zipPath = [self filePath:@"dfgb_ww5.zip"];
+        NSString *destinationPath = [self filePath:@"regular"];
+        
+        BOOL result =  [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath delegate:nil];
+        WSPLog(@"---%d---%@",result,[self filePath:@"dfgb_ww5.zip"]);
+//        NSString *fontPath =  [[self filePath:@"regular"] stringByAppendingString:@"/dfgb_ww5/regular.ttf"];
+        btn.titleLabel.font = [UIFont fontWithName:[self customFontWithPath:fontPath] size:15];
+        
+    } failure:^(__kindof YTKBaseRequest *request) {
+        WSPLog(@"---失败");
+    }];
+}
+-(NSString *)customFontWithPath:(NSString*)path
+{
+    NSURL *fontUrl = [NSURL fileURLWithPath:path];
+    CGDataProviderRef fontDataProvider = CGDataProviderCreateWithURL((__bridge CFURLRef)fontUrl);
+    CGFontRef fontRef = CGFontCreateWithDataProvider(fontDataProvider);
+    CGDataProviderRelease(fontDataProvider);
+    CTFontManagerRegisterGraphicsFont(fontRef, NULL);
+    NSString *fontName = CFBridgingRelease(CGFontCopyPostScriptName(fontRef));
+//    UIFont *font = [UIFont fontWithName:fontName size:size];
+    CGFontRelease(fontRef);
+    return fontName;
+}
+
+- (NSString *)filePath:(NSString *)fileName {
+    NSString *libPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *cachePath = [libPath stringByAppendingPathComponent:@"Caches"];
+    NSString *filePath = [cachePath stringByAppendingPathComponent:fileName];
+    return filePath;
+}
+
 - (IBAction)scale {
     
     UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"修改字体" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"变大",@"正常",@"变小", nil];
@@ -71,7 +136,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (actionSheet == self.themeAction) {
-       
+        
         if (buttonIndex == 0) {
              WSPLog(@"白天模式");
             kSetting.theme = WSPThemeDefault;
@@ -87,8 +152,8 @@
         if (buttonIndex >= stringSize.count) {
             return;
         }
-    //    NSString *str = [NSString stringWithFormat:@"document.getElementById(\"NB-font-size\").style.fontSize=\"%@\";", size[buttonIndex]];
-        NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@'",stringSize[buttonIndex]];
+        NSString *str = [NSString stringWithFormat:@"document.getElementById(\"NB-font-size\").style.fontSize=\"%@\";", size[buttonIndex]];
+//        NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@'",stringSize[buttonIndex]];
         
         [self.webView stringByEvaluatingJavaScriptFromString:str];
         self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"]floatValue];
@@ -105,7 +170,10 @@
        CGFloat webViewHeight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
         
         self.webView.height = webViewHeight + 20;
+//        self.webView.scrollView.contentSize = CGSizeMake(self.webView.width, webViewHeight + 20);
         [self webKitFillBackGroundColor];
+        
+        [self.tabView reloadData];
     }
 }
 
@@ -119,7 +187,13 @@
     [super viewDidLoad];
     // Do any things for me
     [self configerBackGroundColor];
+//    self.tabView.delegate   = nil;
+//    self.tabView.dataSource = nil;
     self.webView.delegate = self;
+//    self.webView.scrollView.delegate = self;
+    
+//    [self.view addSubview:self.webView]; // 只加载个WebView样式看看
+    
     WSPNewsDeatilRequest *requestHome = [[WSPNewsDeatilRequest alloc] init];
     
     requestHome.docid = self.newsModel.docid;
@@ -146,12 +220,16 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveFontTypeChangeNotification) name:KFontTypeDidChangeNotification object:nil];
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.tabBarController.tabBar.hidden = YES;
-    
+    /**
+     *  监听 webView 中 scrollView的内容变化
+     */
     [_webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
 }
 -(void)viewWillDisappear:(BOOL)antimated{
@@ -179,7 +257,7 @@
                 WSPReplyModel *replyModel = [[WSPReplyModel alloc]init];
                 replyModel.name = dict[@"n"];
                 if (replyModel.name == nil) {
-                    replyModel.name = @"外星网友";
+                    replyModel.name = @"未知网友";
                 }
                 replyModel.address = dict[@"f"];
                 replyModel.say = dict[@"b"];
@@ -188,14 +266,18 @@
                 replyModel.rtime = dict[@"t"];
                 [self.replyModels addObject:replyModel];
             }
+            
+            [self.tabView reloadData];
         }
         
     } failure:^(__kindof YTKBaseRequest *request) {
-        WSPLog(@"加载失败pinglun error");
+        WSPLog(@"加载失败评论失败");
     }];
 }
+#pragma mark - webView 加载html 标签
 - (void)showInWebView {
     NSMutableString *html = [NSMutableString string];
+    [html appendString:@"<!DOCTYPE HTML>"];
     [html appendString:@"<html>"];
     [html appendString:@"<head>"];
     [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">",[[NSBundle mainBundle] URLForResource:@"WSPNews.css" withExtension:nil]];
@@ -207,12 +289,11 @@
     
     [html appendString:@"</html>"];
     
-    [self.webView loadHTMLString:html baseURL:nil];
+    [self.webView loadHTMLString:html baseURL:[[NSBundle mainBundle] bundleURL]];
 }
-- (NSString *)touchBody
-{
+- (NSString *)touchBody {
     NSMutableString *body = [NSMutableString string];
-    [body appendFormat:@"<div class=\"title\">%@</div>",self.detailModel.title];
+    [body appendFormat:@"<div class=\"title\">%@</div>" ,self.detailModel.title];
     [body appendFormat:@"<div class=\"time\">%@</div>",self.detailModel.ptime];
     if (self.detailModel.body != nil) {
 //        [body appendString:self.detailModel.body];
@@ -239,43 +320,63 @@
         NSString *onload = @"this.onclick = function() {"
         "  window.location.href = 'sx:src=' +this.src;"
         "};";
-        
-//        [imgHtml appendFormat:@"<img onload=\"%@\"  width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
-        [imgHtml appendFormat:@"<img class=\"img-parent\" id=\"img\" onload=\"%@\" src=\"%@\">",onload,detailImgModel.src];
+       NSString *photoStr = [[NSBundle mainBundle] pathForResource:@"placeHolder_1_640 360.png" ofType:nil];
+//        [imgHtml appendFormat:@"<img class=\"img-parent\" onload=\"%@\"  width=\"%f\" height=\"%f\" src=\"%@\"/>",onload,width,height,photoStr/*,detailImgModel.src*/];
+//        [imgHtml appendFormat:@"<img src=images/1.png>/"];
+        [imgHtml appendFormat:@"<img class=\"image-parent\" id=\"img\" onload=\"%@\" width=\"%f\" height=\"%f\" src=\"%@\" data-original=\"%@\">",onload,width,height,photoStr,detailImgModel.src];
         // 结束标记
         [imgHtml appendString:@"</div>"];
         // 替换标记
         [body replaceOccurrencesOfString:detailImgModel.ref withString:imgHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
+        
     }
-    // <video width="320" height="240" controls="controls" autoplay="autoplay">
-//    <source src="/i/movie.mp4" type="video/mp4" />
-//    <object data="/i/movie.mp4" width="320" height="240">
-//    <embed width="320" height="240" src="/i/movie.swf" />
-//    </object>
-//    </video>
+    
+    NSString *js = @"<script type=\"text/javascript\" src=\"jquery-1.12.1.min.js\"></script>\
+    <script type=\"text/javascript\" src=\"jquery.lazyload.min.js\"></script>\
+    <script type=\"text/javascript\" charset=\"utf-8\">\
+    jQuery(document).ready(function() {\
+    \
+    $(\"img.image-parent\").lazyload({\
+    effect : \"fadeIn\",\
+    effectspeed:1000,\
+    failurelimit : 5,\
+    threshold:200\
+    });\
+    });\
+    </script>";
+    [body appendString:js];
     
     
-    /**
-     *  <embed src="http://player.youku.com/player.php/sid/XMzI2NTc4NTMy/v.swf"
-     width="480" height="400"
-     type="application/x-shockwave-flash">
-     </embed>
-     */
-//    NSString *videoOnload = @"this.onclick = function() {window.location.href = 'sx:videosrc=' +this.src;};";
+    NSString *funJs = @"<script type=\"text/javascript\"> \
+    (function (){ \
+    var imageList = document.getElementsByTagName(\"img\");\
+    for(var i = 0; i < imageList.length; i++){ \
+    var image = imageList[i]; \
+    image.href = image.src; \
+    image.src = \"http://y2.ifengimg.com/auto/image/2016/0302/033330702_240.jpg\"; \
+    image.alt = \"点击加载图片\"; \
+    image.onclick = function(){ \
+    if(this.src != this.href) {\
+    this.src = this.href; \
+    return false; \
+    } else { \
+    document.location = this.src; \
+    return false; \
+    } \
+    } \
+    } \
+    }()); \
+    </script>";
+//    [body appendString:funJs];
+    
     NSString *videoOnload = @"this.onclick = function() {"
     "  window.location.href = 'sx:videosrc=' +this.src;"
     "};";
-    
+    // <video src="http://v6.pstatp.com/origin/11785/921826846?Signature=FrWqfzZseH5XygofzJjA29lH4Yo%3D&amp;Expires=1458806833&amp;KSSAccessKeyId=qh0h9TdcEMrm1VlR2ad/" type="video/mp4" controls="" poster="http://p3.pstatp.com/large/2f8000ee7abd0d80d35" preload="none" style="width:100%;height:100%;">
     for (video *vedios in self.detailModel.video) {
         
+        [body replaceOccurrencesOfString:vedios.ref withString:[NSString stringWithFormat:@"<video onload=\"%@\" src=\"%@\" width=\"%f\" height=\"200\" poster=\"%@\" type=\"video/mp4\" preload=\"none\"></video>",videoOnload ,vedios.url_mp4, _webView.bounds.size.width - 16,vedios.cover] options:0 range:NSMakeRange(0, [body length])];
         
-        [body replaceOccurrencesOfString:vedios.ref withString:[NSString stringWithFormat:@"<video onload=\"%@\" width=\"%f\" height=\"200\" poster=\"%@\"><source src=\"%@\"></video>",videoOnload ,_webView.bounds.size.width - 16,vedios.cover,vedios.url_mp4] options:0 range:NSMakeRange(0, [body length])];
-        
-//         NSMutableString *vedioHtml = [NSMutableString string];
-//        [vedioHtml appendFormat:@"<embed src=\"%@\" width=\"360\" height=\"200\"type=\"application/x-shockwave-flash\">",vedios.url_mp4];
-//        [vedioHtml appendString:@" </embed>"];
-//        // 替换标记
-//        [body replaceOccurrencesOfString:vedios.ref withString:vedioHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
     }
     return body;
 }
@@ -299,37 +400,21 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-//    self.webView.height = self.webView.scrollView.contentSize.height;
-    self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue] + 20;
-//    self.sectionHeight = self.webView.scrollView.contentSize.height;
-    NSString *funJs = @"<script type=\"text/javascript\"> \
-    (function (){ \
-    var imageList = document.getElementsByTagName(\"img\");\
-    for(var i = 0; i < imageList.length; i++){ \
-    var image = imageList[i]; \
-    image.href = image.src; \
-    image.src = \"http://y2.ifengimg.com/auto/image/2016/0302/033330702_240.jpg\"; \
-    image.alt = \"点击加载图片\"; \
-    image.onclick = function(){ \
-    if(this.src != this.href) {\
-    this.src = this.href; \
-    return false; \
-    } else { \
-    document.location = this.src; \
-    return false; \
-    } \
-    } \
-    } \
-    }()); \
-    </script>";
+    self.webView.height = self.webView.scrollView.contentSize.height;
     
-    [self.webView stringByEvaluatingJavaScriptFromString:funJs];
-    [self.tabView reloadData];
-    WSPLog(@"---%f",self.webView.height);
+//    self.webView.height =  [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue] + 20;
+//    self.sectionHeight = self.webView.scrollView.contentSize.height;
+    
+
+//    [self.tabView reloadData];
+//    WSPLog(@"---%f---%@",self.webView.height, laString);
+//    NSString *str1 = [NSString stringWithFormat:@"document.getElementById(\"NB-font-size\").style.fontFamily=\"%@\";", KShowFontName];
+//    NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.fontFamily= '%@'",KShowFontName];
+//    [self.webView stringByEvaluatingJavaScriptFromString:str1];
+//    [self.webView stringByEvaluatingJavaScriptFromString:str];
 }
 #pragma mark - ******************** 保存到相册方法
-- (void)savePictureToAlbum:(NSString *)src
-{
+- (void)savePictureToAlbum:(NSString *)src {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要保存到相册吗？" preferredStyle:UIAlertControllerStyleActionSheet];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
@@ -363,13 +448,11 @@
     [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOffscreen];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return self.webView;
     }else if (section == 1){
@@ -396,10 +479,9 @@
     return [UIView new];
 }
 
-- (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
+- (CGFloat )tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return self.webView.height;
+        return self.webView.height;//scrollView.contentSize.height;
     }else if (section == 1){
         return self.replyModels.count > 0 ? 40 : CGFLOAT_MIN;
     }else if (section == 2){
@@ -427,8 +509,7 @@
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
     }else if (section == 1){
@@ -567,33 +648,37 @@
 //    sp.keyword = sender.titleLabel.text;
 //    [self.navigationController pushViewController:sp animated:YES];
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (self.closeCell) {
-        self.closeCell.iSCloseing = NewsDetailControllerClose;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView == self.tabView) {
+        if (self.closeCell) {
+            self.closeCell.iSCloseing = NewsDetailControllerClose;
+        }
     }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (NewsDetailControllerClose) {
-        WSPLog(@"----%d",NewsDetailControllerClose);
-        
-        UIImageView *imgV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-        imgV.image = [self getImage];
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        [window addSubview:imgV];
-        [self.navigationController popViewControllerAnimated:NO];
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            imgV.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height/2, [UIScreen mainScreen].bounds.size.width/2, 10);
-            if (imgV) {
-                imgV.alpha = 0.0;
-            }
+    if (scrollView == self.tabView) {
+        if (NewsDetailControllerClose) {
+            WSPLog(@"----%d",NewsDetailControllerClose);
             
-        } completion:^(BOOL finished) {
-            [imgV removeFromSuperview];
-        }];
-    } 
+            UIImageView *imgV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+            imgV.image = [self getImage];
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            [window addSubview:imgV];
+            [self.navigationController popViewControllerAnimated:NO];
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                imgV.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height/2, [UIScreen mainScreen].bounds.size.width/2, 10);
+                if (imgV) {
+                    imgV.alpha = 0.0;
+                }
+                
+            } completion:^(BOOL finished) {
+                [imgV removeFromSuperview];
+            }];
+        }
+    }
+    
 }
 - (UIImage *)getImage {
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height), NO, 1.0);
@@ -614,6 +699,26 @@
     
     [self configerBackGroundColor];
     [self webKitFillBackGroundColor];
+    [self.tabView reloadData];
+}
+- (void)didReceiveFontTypeChangeNotification {
+    if (KCurrentFontType == WSPFontTypeSystem) {
+        NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.fontFamily= '%@'",[WSPThemeManger manager].chageFontName];
+        NSString *str1 = [NSString stringWithFormat:@"document.getElementById(\"NB-font-size\").style.fontFamily=\"%@\";", @".SFUIText-Regular"];
+//        UIPickerView
+       NSString *gaiString =  [self.webView stringByEvaluatingJavaScriptFromString:str1];
+       [self.webView stringByEvaluatingJavaScriptFromString:str];
+        WSPLog(@"----%@",gaiString);
+        
+    } else {
+        NSString *str = [NSString stringWithFormat:@"document.body.style.fontFamily= '%@'",[WSPThemeManger manager].chageFontName];
+        NSString *str1 = [NSString stringWithFormat:@"document.getElementById(\"NB-font-size\").style.fontFamily=\"%@\";", [WSPThemeManger manager].chageFontName];
+        
+        [self.webView stringByEvaluatingJavaScriptFromString:str1];
+       NSString *gaiString = [self.webView stringByEvaluatingJavaScriptFromString:str];
+         WSPLog(@"----%@",gaiString);
+    }
+    
     [self.tabView reloadData];
 }
 // 颜色切换

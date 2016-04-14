@@ -45,7 +45,12 @@
 #define kCellHighlightedColor      kSetting.cellHighlightedColor
 #define kMenuCellHighlightedColor  kSetting.menuCellHighlightedColor
 
+#define KShowFontName              kSetting.chageFontName // 文字名字
+
 #define kCurrentTheme              kSetting.theme
+
+#define KCurrentFontType           kSetting.fontType
+
 
 #import "Masonry.h"
 
@@ -63,7 +68,8 @@
 #define kScreen_Height [UIScreen mainScreen].bounds.size.height
 #define kScreen_Width [UIScreen mainScreen].bounds.size.width
 
-static NSString * const kThemeDidChangeNotification = @"ThemeDidChangeNotification";
+static NSString *const kThemeDidChangeNotification = @"ThemeDidChangeNotification";
+static NSString *const KFontTypeDidChangeNotification = @"FontTypeDidChangeNotification";
 
 @interface WSPConst : NSObject
 

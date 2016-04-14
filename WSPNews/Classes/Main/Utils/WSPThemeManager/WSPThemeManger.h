@@ -13,6 +13,11 @@ typedef NS_ENUM(NSInteger, WSPTheme) {
     WSPThemeNight,   // 夜晚
 };
 
+typedef NS_ENUM(NSInteger, WSPFontType) {
+    WSPFontTypeSystem, // 系统
+    WSPFontTypeDFWaWaW5, // 华康娃娃体
+};
+
 @interface WSPThemeManger : NSObject
 + (instancetype)manager;
 #pragma mark - Index
@@ -22,6 +27,7 @@ typedef NS_ENUM(NSInteger, WSPTheme) {
 @property (nonatomic, assign) NSUInteger favoriteSelectedSectionIndex;
 
 #pragma mark - Theme
+@property (nonatomic, assign) WSPFontType fontType;
 
 @property (nonatomic, assign) WSPTheme theme;
 
@@ -47,6 +53,8 @@ typedef NS_ENUM(NSInteger, WSPTheme) {
 @property (nonatomic, copy) UIColor *menuCellHighlightedColor;
 
 @property (nonatomic, assign) CGFloat imageViewAlphaForCurrentTheme;
+
+@property (nonatomic, copy) NSString *chageFontName;
 
 #pragma mark - Notification
 

@@ -16,13 +16,19 @@
 
 + (void)initialize {
     UINavigationBar *navigationBar = [UINavigationBar appearance];
-    [navigationBar setBarTintColor:[UIColor colorWithRed:0.993 green:0.013 blue:0.088 alpha:0.760]];
-    [navigationBar setTintColor:[UIColor whiteColor]];
+    [navigationBar setBarTintColor:[UIColor colorWithRed:0.993 green:0.203 blue:0.088 alpha:0.631]];
+//    [navigationBar setTintColor:[UIColor whiteColor]];
+    
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage new]
+//                                       forBarMetrics:UIBarMetricsDefault];
+//    navigationBar.translucent = NO;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.extendedLayoutIncludesOpaqueBars = NO;
    
 }
 

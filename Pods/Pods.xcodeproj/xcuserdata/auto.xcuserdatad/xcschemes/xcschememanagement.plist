@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SSZipArchive.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YTKNetwork.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,32 +62,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A9611B6C383F5BD172EE86093CEF020</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>28EDA0AC3272A77B0575F728B99261BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3CE5DE1B14ACE2A14373FCE7293D854F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3F994B08F328F0F3C90F70BA552FA742</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5A6E54B6FB05E452BBF6A2F361E168E3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>67FD7EACCC9BCCE0C22D7577DFC3EDBA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7B641C46DE7C76353A9536FD1F848916</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +92,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>99627E42D6524F99CFA9B68673E76C0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B2655FA87E420916C03602AB7400629E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B3C760711B585710870482548EF04B3F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5BCAC15D9F5C50DDD80CB506EB32B55</key>
 		<dict>
 			<key>primary</key>
 			<true/>

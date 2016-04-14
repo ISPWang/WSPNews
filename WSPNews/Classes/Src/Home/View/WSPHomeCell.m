@@ -39,6 +39,9 @@
     self.contentView.backgroundColor = kBackgroundColorWhite;
     self.wspTitle.textColor          = kFontColorBlackMid;
     
+    self.wspTitle.font = [UIFont fontWithName:KShowFontName size:16];
+    self.wspSubTitle.font = [UIFont fontWithName:KShowFontName size:13];
+    
     [self.imageIcon sd_setImageWithURL:[NSURL URLWithString:self.NewsModel.imgsrc] placeholderImage:[UIImage imageNamed:@"302"]];
     self.wspTitle.text = self.NewsModel.title;
     self.wspSubTitle.text = self.NewsModel.digest;
@@ -77,6 +80,7 @@
         self.ScroImge.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
         self.ScroImge.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         self.ScroImge.currentPageDotColor = [UIColor orangeColor];
+        self.ScroImge.titleLabelTextFont = [UIFont fontWithName:KShowFontName size:15];
         self.ScroImge.hidesForSinglePage = YES;
         if (NewsModel.ads.count <=1) {
             self.ScroImge.autoScroll = NO;

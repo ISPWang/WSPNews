@@ -49,10 +49,14 @@
 		C9464BCC1C61927600ACBC4F /* WSPDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BCB1C61927600ACBC4F /* WSPDetailModel.m */; };
 		C9464BCF1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */; };
 		C9464BD11C619F2800ACBC4F /* WSPNews.css in Resources */ = {isa = PBXBuildFile; fileRef = C9464BD01C619F2800ACBC4F /* WSPNews.css */; };
+		C94C900B1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C900A1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m */; };
 		C96589041C744C9400E5184C /* AutoStirViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589031C744C9400E5184C /* AutoStirViewController.m */; };
 		C96589071C7451CE00E5184C /* WSPPhotoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589061C7451CE00E5184C /* WSPPhotoRequest.m */; };
 		C965890A1C74548500E5184C /* WSPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589091C74548500E5184C /* WSPPhotoModel.m */; };
 		C965890D1C74574800E5184C /* WSPPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C965890C1C74574800E5184C /* WSPPhotoViewController.m */; };
+		C965C4811C92585300007AF9 /* placeHolder_1_640 360.png in Resources */ = {isa = PBXBuildFile; fileRef = C965C4801C92585300007AF9 /* placeHolder_1_640 360.png */; };
+		C97BEA631C916EB10026E89D /* jquery-1.12.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C97BEA611C916EB10026E89D /* jquery-1.12.1.min.js */; };
+		C97BEA641C916EB10026E89D /* jquery.lazyload.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C97BEA621C916EB10026E89D /* jquery.lazyload.min.js */; };
 		C99BC8AA1C72F7D20022C12C /* WSPReleatedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8A91C72F7D20022C12C /* WSPReleatedModel.m */; };
 		C99BC8AD1C72FE4B0022C12C /* UIView+WSPFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8AC1C72FE4B0022C12C /* UIView+WSPFrame.m */; };
 		C99BC8AF1C72FF440022C12C /* WSPDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99BC8AE1C72FF440022C12C /* WSPDetailBottomCell.xib */; };
@@ -211,6 +215,8 @@
 		C9464BCD1C6192EB00ACBC4F /* WSPNewsDeatilRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPNewsDeatilRequest.h; sourceTree = "<group>"; };
 		C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPNewsDeatilRequest.m; sourceTree = "<group>"; };
 		C9464BD01C619F2800ACBC4F /* WSPNews.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = WSPNews.css; sourceTree = "<group>"; };
+		C94C90091CA3BAAC00B3B446 /* WSPDownLoadFontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPDownLoadFontManager.h; sourceTree = "<group>"; };
+		C94C900A1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPDownLoadFontManager.m; sourceTree = "<group>"; };
 		C96589021C744C9400E5184C /* AutoStirViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoStirViewController.h; sourceTree = "<group>"; };
 		C96589031C744C9400E5184C /* AutoStirViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoStirViewController.m; sourceTree = "<group>"; };
 		C96589051C7451CE00E5184C /* WSPPhotoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoRequest.h; sourceTree = "<group>"; };
@@ -219,6 +225,9 @@
 		C96589091C74548500E5184C /* WSPPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoModel.m; sourceTree = "<group>"; };
 		C965890B1C74574800E5184C /* WSPPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoViewController.h; sourceTree = "<group>"; };
 		C965890C1C74574800E5184C /* WSPPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoViewController.m; sourceTree = "<group>"; };
+		C965C4801C92585300007AF9 /* placeHolder_1_640 360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeHolder_1_640 360.png"; sourceTree = "<group>"; };
+		C97BEA611C916EB10026E89D /* jquery-1.12.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.12.1.min.js"; sourceTree = "<group>"; };
+		C97BEA621C916EB10026E89D /* jquery.lazyload.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.lazyload.min.js; sourceTree = "<group>"; };
 		C99BC8A81C72F7D20022C12C /* WSPReleatedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPReleatedModel.h; sourceTree = "<group>"; };
 		C99BC8A91C72F7D20022C12C /* WSPReleatedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPReleatedModel.m; sourceTree = "<group>"; };
 		C99BC8AB1C72FE4B0022C12C /* UIView+WSPFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WSPFrame.h"; sourceTree = "<group>"; };
@@ -373,7 +382,10 @@
 		C93C56831C3D076400599C00 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C965C4801C92585300007AF9 /* placeHolder_1_640 360.png */,
 				C9414B951C5859CE0091A6C7 /* NewsUrl.plist */,
+				C97BEA611C916EB10026E89D /* jquery-1.12.1.min.js */,
+				C97BEA621C916EB10026E89D /* jquery.lazyload.min.js */,
 				C9464BD01C619F2800ACBC4F /* WSPNews.css */,
 				C93C56841C3D076400599C00 /* main.m */,
 			);
@@ -529,6 +541,8 @@
 				C96589061C7451CE00E5184C /* WSPPhotoRequest.m */,
 				C99BC8B31C7303BE0022C12C /* WSPReplyRequest.h */,
 				C99BC8B41C7303BE0022C12C /* WSPReplyRequest.m */,
+				C94C90091CA3BAAC00B3B446 /* WSPDownLoadFontManager.h */,
+				C94C900A1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -830,6 +844,8 @@
 				C9F56ABF1C8D2DF90009D557 /* LICENSE in Resources */,
 				C9F56AA31C8D2DF90009D557 /* PlayButtonOverlayLarge@3x.png in Resources */,
 				C93C56931C3D076400599C00 /* LaunchScreen.storyboard in Resources */,
+				C965C4811C92585300007AF9 /* placeHolder_1_640 360.png in Resources */,
+				C97BEA631C916EB10026E89D /* jquery-1.12.1.min.js in Resources */,
 				C93C56901C3D076400599C00 /* Assets.xcassets in Resources */,
 				C9F56AA71C8D2DF90009D557 /* UIBarButtonItemArrowLeft.png in Resources */,
 				C93C568E1C3D076400599C00 /* Main.storyboard in Resources */,
@@ -866,6 +882,7 @@
 				C9F56A971C8D2DF90009D557 /* ImageSelectedOff@3x.png in Resources */,
 				C9F56A991C8D2DF90009D557 /* ImageSelectedOn@2x.png in Resources */,
 				C9F56AAB1C8D2DF90009D557 /* UIBarButtonItemArrowRight@2x.png in Resources */,
+				C97BEA641C916EB10026E89D /* jquery.lazyload.min.js in Resources */,
 				C99BC8AF1C72FF440022C12C /* WSPDetailBottomCell.xib in Resources */,
 				C9F56AB21C8D2DF90009D557 /* VideoOverlay@3x.png in Resources */,
 				C9F56A951C8D2DF90009D557 /* ImageSelectedOff.png in Resources */,
@@ -949,6 +966,7 @@
 				C93D01661C7D84C000FF4D08 /* UIView+BlocksKit.m in Sources */,
 				C9464BCF1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m in Sources */,
 				C9F56AC01C8D2DF90009D557 /* MBProgressHUD.m in Sources */,
+				C94C900B1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m in Sources */,
 				C93F89891C8ECDD2005C1CFB /* WSPPhotoBrowerController.m in Sources */,
 				C93C56E91C3D0E9700599C00 /* UIView+Frame.m in Sources */,
 				C9414B9E1C585D420091A6C7 /* WSPTitleShowLabel.m in Sources */,

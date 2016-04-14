@@ -13,9 +13,10 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self=[super initWithFrame:frame]) {
         self.textAlignment = NSTextAlignmentCenter;
-        self.font = [UIFont systemFontOfSize:18];
+        self.font = [UIFont fontWithName:KShowFontName size:18];
         self.scale = 0.0;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveFontTypeChangeNotification) name:KFontTypeDidChangeNotification object:nil];
     }
     return self;
 }
@@ -41,5 +42,12 @@
     if (self.scale == 0) {
         self.textColor = (kCurrentTheme == WSPThemeNight) ? [UIColor whiteColor] : [UIColor blackColor];//kFontColorBlackMid;
     }
+}
+- (void)didReceiveFontTypeChangeNotification {
+    
+    self.font = [UIFont fontWithName:KShowFontName size:18];
+}
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

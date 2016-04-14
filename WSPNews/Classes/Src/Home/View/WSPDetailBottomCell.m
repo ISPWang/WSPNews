@@ -77,6 +77,12 @@
     self.backgroundColor = kBackgroundColorWhite;
     self.contentView.backgroundColor = kBackgroundColorWhite;
     
+    self.userLbl.font = [UIFont fontWithName:KShowFontName size:11];
+    self.replyDetail.font = [UIFont fontWithName:KShowFontName size:14];
+    
+    self.goodLbl.font = [UIFont fontWithName:KShowFontName size:11];
+    self.userLocationLbl.font = [UIFont fontWithName:KShowFontName size:11];
+    
     if (self.contentView.subviews) {
         UIView *subView = self.contentView.subviews[0];
         subView.backgroundColor = kBackgroundColorWhite;
@@ -102,6 +108,14 @@
     self.newsTitleLbl.textColor = kFontColorBlackDark;
     self.newsFromLbl.textColor = kFontColorBlackDark;
     self.newsTimeLbl.textColor = kFontColorBlackDark;
+    
+    
+    self.newsTitleLbl.font = [UIFont fontWithName:KShowFontName size:14];
+    self.newsFromLbl.font = [UIFont fontWithName:KShowFontName size:12];
+    
+    self.newsTimeLbl.font = [UIFont fontWithName:KShowFontName size:12];
+    
+    
     self.backgroundColor = kBackgroundColorWhite;
     self.contentView.backgroundColor = kBackgroundColorWhite;
     if (self.contentView.subviews) {

@@ -38,6 +38,20 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+//    UITextField *test = [[UITextField alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+////    test.tintColor = [UIColor redColor];
+////    test.onTintColor = [UIColor yellowColor];
+////    test.thumbTintColor = [UIColor greenColor];
+//    test.textColor = [UIColor redColor];
+//    test.placeholder = @"输入";
+//    test.tintColor = [UIColor colorWithRed:0.203 green:1.000 blue:0.000 alpha:1.000];
+//    [self.view addSubview:test];
+//    test.borderStyle = UITextBorderStyleRoundedRect;
+//    
+//    return;
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
@@ -58,6 +72,7 @@
     }
     
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveFontTypeChangeNotification) name:KFontTypeDidChangeNotification object:nil];
 }
 
 #pragma mark - /************************* 刷新数据 ***************************/
@@ -317,6 +332,13 @@
     self.tableView.backgroundColor = kBackgroundColorWhite;
     
     [self.tableView reloadData];
+    
+}
+- (void)didReceiveFontTypeChangeNotification {
+    [self.tableView reloadData];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

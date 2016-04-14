@@ -7,6 +7,7 @@
 //
 
 #import "WSPThemeManger.h"
+#import <CoreText/CoreText.h>
 
 #define userDefaults [NSUserDefaults standardUserDefaults]
 
@@ -25,6 +26,8 @@ static NSString *const kFavoriteSelectedSectionIndex = @"FavoriteSelectedSection
 
 static NSString *const kTheme           = @"Theme";
 static NSString *const kThemeAutoChange = @"ThemeAutoChange";
+
+static NSString *const KFontType        = @"FontType";
 
 static NSString *const kCheckInNotiticationOn = @"CheckInNotitication";
 static NSString *const kNewNotificationOn     = @"NewNotification";
@@ -49,6 +52,8 @@ static NSString *const kPreferHttps = @"PreferHttps";
         self.favoriteSelectedSectionIndex = [[userDefaults objectForKey:kFavoriteSelectedSectionIndex] unsignedIntegerValue];
         
         _theme = [[userDefaults objectForKey:kTheme] integerValue];
+        
+        _fontType = [[userDefaults objectForKey:KFontType] integerValue];
         
         id themeAutoChange = [userDefaults objectForKey:kThemeAutoChange];
         if (themeAutoChange) {
@@ -94,6 +99,7 @@ static NSString *const kPreferHttps = @"PreferHttps";
         }
         
         [self configureTheme:_theme];
+        [self configFontTypeChange:_fontType];
         
     }
     return self;
@@ -133,6 +139,49 @@ static NSString *const kPreferHttps = @"PreferHttps";
     
 }
 
+- (void)setFontType:(WSPFontType)fontType {
+    _fontType = fontType;
+    [userDefaults setObject:@(fontType) forKey:KFontType];
+    [userDefaults synchronize];
+    [self configFontTypeChange:fontType];
+    // 这里发通知;
+    [[NSNotificationCenter defaultCenter] postNotificationName:KFontTypeDidChangeNotification object:nil];
+}
+- (void)configFontTypeChange:(WSPFontType)fontType {
+    switch (fontType) {
+        case WSPFontTypeSystem:
+            self.chageFontName = [UIFont systemFontOfSize:15].fontName;
+            
+            break;
+        case WSPFontTypeDFWaWaW5: {
+            NSString *fontPath =  [[self filePath:@"regular"] stringByAppendingString:@"/dfgb_ww5/regular.ttf"];
+            self.chageFontName = [self customFontWithPath:fontPath size:0];//@"DFWaWaW5-GB";
+        }   
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (NSString *)filePath:(NSString *)fileName {
+    NSString *libPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *cachePath = [libPath stringByAppendingPathComponent:@"Caches"];
+    NSString *filePath = [cachePath stringByAppendingPathComponent:fileName];
+    return filePath;
+}
+-(NSString *)customFontWithPath:(NSString*)path size:(CGFloat)size
+{
+    NSURL *fontUrl = [NSURL fileURLWithPath:path];
+    CGDataProviderRef fontDataProvider = CGDataProviderCreateWithURL((__bridge CFURLRef)fontUrl);
+    CGFontRef fontRef = CGFontCreateWithDataProvider(fontDataProvider);
+    CGDataProviderRelease(fontDataProvider);
+    CTFontManagerRegisterGraphicsFont(fontRef, NULL);
+    NSString *fontName = CFBridgingRelease(CGFontCopyPostScriptName(fontRef));
+//    UIFont *font = [UIFont fontWithName:fontName size:size];
+    CGFontRelease(fontRef);
+    return fontName;
+}
 #pragma mark - Theme
 
 - (void)setTheme:(WSPTheme)theme {
