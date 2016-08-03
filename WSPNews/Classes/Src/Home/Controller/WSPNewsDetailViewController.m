@@ -78,8 +78,6 @@
     UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"修改字体" message:@"" delegate:self cancelButtonTitle:@"系统" otherButtonTitles:@"娃娃体", nil];
     [alertV show];
     
-    
-    
     NSString *fontPath =  [[self filePath:@"regular"] stringByAppendingString:@"/dfgb_ww5/regular.ttf"];
     
     
@@ -199,9 +197,10 @@
     requestHome.docid = self.newsModel.docid;
     
     [requestHome startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        if ([request.responseJSONObject isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingMutableContainers error:nil];
+        if ([jsonDict isKindOfClass:[NSDictionary class]]) {
             WSPLog(@"------%@",request.responseString);
-            self.detailModel = [WSPDetailModel mj_objectWithKeyValues:request.responseJSONObject[self.newsModel.docid]];
+            self.detailModel = [WSPDetailModel mj_objectWithKeyValues:jsonDict[self.newsModel.docid]];
             if (self.newsModel.boardid.length < 1) {
                 self.newsModel.boardid = self.detailModel.replyBoard;
             }
@@ -209,8 +208,8 @@
             
             [self showInWebView];
             [self sendRequestWithUrl2];
-            self.sameNews = [WSPReleatedModel mj_objectArrayWithKeyValuesArray:request.responseJSONObject[self.newsModel.docid][@"relative_sys"]];
-             self.keywordSearch = request.responseJSONObject[self.newsModel.docid][@"keyword_search"];
+            self.sameNews = [WSPReleatedModel mj_objectArrayWithKeyValuesArray:jsonDict[self.newsModel.docid][@"relative_sys"]];
+             self.keywordSearch = jsonDict[self.newsModel.docid][@"keyword_search"];
         }
         
     } failure:^(YTKBaseRequest *request) {
@@ -346,7 +345,7 @@
     </script>";
     [body appendString:js];
     
-    
+    /*
     NSString *funJs = @"<script type=\"text/javascript\"> \
     (function (){ \
     var imageList = document.getElementsByTagName(\"img\");\
@@ -367,8 +366,8 @@
     } \
     }()); \
     </script>";
-//    [body appendString:funJs];
-    
+    [body appendString:funJs];
+    */
     NSString *videoOnload = @"this.onclick = function() {"
     "  window.location.href = 'sx:videosrc=' +this.src;"
     "};";
@@ -565,7 +564,7 @@
             return hotreply;
         }
     }else if (indexPath.section == 2){
-        if (indexPath.row == 0) {
+        if (indexPath.row == 0 && self.keywordSearch.count > 0) {
             WSPDetailBottomCell *cell = [WSPDetailBottomCell theKeywordCell];
             cell.contentView.backgroundColor = kBackgroundColorWhite;
             [cell.contentView addSubview:[self addKeywordButton]];
@@ -591,7 +590,7 @@
             return 110.5;
         }
     }else if (indexPath.section == 2){
-        if (indexPath.row == 0) {
+        if (indexPath.row == 0 && self.keywordSearch.count > 0) {
             return 60;
         }else{
             return 81;
@@ -611,7 +610,7 @@
             return 110.5;
         }
     }else if (indexPath.section == 2){
-        if (indexPath.row == 0) {
+        if (indexPath.row == 0 && self.keywordSearch.count > 0) {
             return 60;
         }else{
             return 81;

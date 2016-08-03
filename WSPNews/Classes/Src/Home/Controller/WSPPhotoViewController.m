@@ -7,7 +7,6 @@
 //
 
 #import "WSPPhotoViewController.h"
-#import "AutoStirViewController.h"
 #import "WSPPhotoRequest.h"
 #import "WSPPhotoModel.h"
 @interface WSPPhotoViewController () <MWPhotoBrowserDelegate>

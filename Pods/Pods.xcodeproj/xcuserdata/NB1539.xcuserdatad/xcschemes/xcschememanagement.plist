@@ -6,58 +6,58 @@
 	<dict>
 		<key>AFDownloadRequestOperation.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>JTSImageViewController.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-WSPNews.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDCycleScrollView.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SSZipArchive.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>YTKNetwork.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -67,12 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3CE5DE1B14ACE2A14373FCE7293D854F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3F994B08F328F0F3C90F70BA552FA742</key>
+		<key>38F33408B0DBDBBB776BD90150BA1EDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99627E42D6524F99CFA9B68673E76C0C</key>
+		<key>91D4574E421D1005862F5E2C216218E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,17 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B2655FA87E420916C03602AB7400629E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B3C760711B585710870482548EF04B3F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E5BCAC15D9F5C50DDD80CB506EB32B55</key>
+		<key>CB67474ABA14639C785260A41641C922</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2BF327E316A7B1EE49D6E52A89908B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8D746A5AB0D3CE518E864041072755C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -8,7 +8,6 @@
 
 #import "WSPTableViewController.h"
 #import "WSPNewsDetailViewController.h"
-#import "AutoStirViewController.h"
 #import "WSPHomeCell.h"
 #import "WSPHomeModel.h"
 #import "MJRefresh.h"
@@ -97,7 +96,7 @@
     self.requestHome = requestHome;
      self.requestHome.urlString = allUrlstring;
     [self.requestHome startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        NSDictionary *responseObject = (NSDictionary *)request.responseJSONObject;
+        NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingMutableContainers error:nil];//(NSDictionary *)request.responseJSONObject;
         NSString *key = [responseObject.keyEnumerator nextObject];
         //
         NSArray *temArray = responseObject[key];
@@ -126,7 +125,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+    self.tableView.mj_footer.hidden = (self.newsArrayList.count == 0);
     return self.newsArrayList.count;
 }
 

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B8A324C8B34558516559CC11 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FE6766FB4E2087E4A9FED8B /* libPods.a */; };
+		0C0AEC20FCE7DF31B8C6696E /* libPods-WSPNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC249468A9095FCD06052D8 /* libPods-WSPNews.a */; };
+		A1F5B6B31D0CF8DD00515151 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A4E1C8D2DF90009D557 /* .gitkeep */; };
 		C93C56851C3D076400599C00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56841C3D076400599C00 /* main.m */; };
 		C93C56881C3D076400599C00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56871C3D076400599C00 /* AppDelegate.m */; };
 		C93C568E1C3D076400599C00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C93C568C1C3D076400599C00 /* Main.storyboard */; };
@@ -50,7 +51,6 @@
 		C9464BCF1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */; };
 		C9464BD11C619F2800ACBC4F /* WSPNews.css in Resources */ = {isa = PBXBuildFile; fileRef = C9464BD01C619F2800ACBC4F /* WSPNews.css */; };
 		C94C900B1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C900A1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m */; };
-		C96589041C744C9400E5184C /* AutoStirViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589031C744C9400E5184C /* AutoStirViewController.m */; };
 		C96589071C7451CE00E5184C /* WSPPhotoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589061C7451CE00E5184C /* WSPPhotoRequest.m */; };
 		C965890A1C74548500E5184C /* WSPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589091C74548500E5184C /* WSPPhotoModel.m */; };
 		C965890D1C74574800E5184C /* WSPPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C965890C1C74574800E5184C /* WSPPhotoViewController.m */; };
@@ -63,7 +63,6 @@
 		C99BC8B21C72FFFD0022C12C /* WSPDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B11C72FFFD0022C12C /* WSPDetailBottomCell.m */; };
 		C99BC8B51C7303BE0022C12C /* WSPReplyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B41C7303BE0022C12C /* WSPReplyRequest.m */; };
 		C99BC8B81C7306890022C12C /* WSPReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B71C7306890022C12C /* WSPReplyModel.m */; };
-		C9F56A911C8D2DF90009D557 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A4E1C8D2DF90009D557 /* .gitkeep */; };
 		C9F56A921C8D2DF90009D557 /* ImageError.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A4F1C8D2DF90009D557 /* ImageError.png */; };
 		C9F56A931C8D2DF90009D557 /* ImageError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A501C8D2DF90009D557 /* ImageError@2x.png */; };
 		C9F56A941C8D2DF90009D557 /* ImageError@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A511C8D2DF90009D557 /* ImageError@3x.png */; };
@@ -97,7 +96,6 @@
 		C9F56AB01C8D2DF90009D557 /* VideoOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A6D1C8D2DF90009D557 /* VideoOverlay.png */; };
 		C9F56AB11C8D2DF90009D557 /* VideoOverlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A6E1C8D2DF90009D557 /* VideoOverlay@2x.png */; };
 		C9F56AB21C8D2DF90009D557 /* VideoOverlay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A6F1C8D2DF90009D557 /* VideoOverlay@3x.png */; };
-		C9F56AB31C8D2DF90009D557 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A711C8D2DF90009D557 /* .gitkeep */; };
 		C9F56AB41C8D2DF90009D557 /* MWCaptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F56A731C8D2DF90009D557 /* MWCaptionView.m */; };
 		C9F56AB51C8D2DF90009D557 /* MWGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F56A761C8D2DF90009D557 /* MWGridCell.m */; };
 		C9F56AB61C8D2DF90009D557 /* MWGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F56A781C8D2DF90009D557 /* MWGridViewController.m */; };
@@ -111,7 +109,6 @@
 		C9F56ABE1C8D2DF90009D557 /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F56A8B1C8D2DF90009D557 /* DALabeledCircularProgressView.m */; };
 		C9F56ABF1C8D2DF90009D557 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A8D1C8D2DF90009D557 /* LICENSE */; };
 		C9F56AC01C8D2DF90009D557 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F56A8F1C8D2DF90009D557 /* MBProgressHUD.m */; };
-		C9F56AC11C8D2DF90009D557 /* README.mdown in Sources */ = {isa = PBXBuildFile; fileRef = C9F56A901C8D2DF90009D557 /* README.mdown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,9 +129,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2FE6766FB4E2087E4A9FED8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AABB8A61937430F9681898E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		A5DF3E453F9BFFB8B0010F56 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		063F04E6A60EB51877A59CDC /* Pods-WSPNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WSPNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-WSPNews/Pods-WSPNews.release.xcconfig"; sourceTree = "<group>"; };
+		A7CFB319F0D437C7F63D3867 /* Pods-WSPNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WSPNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WSPNews/Pods-WSPNews.debug.xcconfig"; sourceTree = "<group>"; };
 		C93C56801C3D076400599C00 /* WSPNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSPNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93C56841C3D076400599C00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C93C56861C3D076400599C00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -217,8 +213,6 @@
 		C9464BD01C619F2800ACBC4F /* WSPNews.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = WSPNews.css; sourceTree = "<group>"; };
 		C94C90091CA3BAAC00B3B446 /* WSPDownLoadFontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPDownLoadFontManager.h; sourceTree = "<group>"; };
 		C94C900A1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPDownLoadFontManager.m; sourceTree = "<group>"; };
-		C96589021C744C9400E5184C /* AutoStirViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoStirViewController.h; sourceTree = "<group>"; };
-		C96589031C744C9400E5184C /* AutoStirViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoStirViewController.m; sourceTree = "<group>"; };
 		C96589051C7451CE00E5184C /* WSPPhotoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoRequest.h; sourceTree = "<group>"; };
 		C96589061C7451CE00E5184C /* WSPPhotoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoRequest.m; sourceTree = "<group>"; };
 		C96589081C74548500E5184C /* WSPPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoModel.h; sourceTree = "<group>"; };
@@ -303,6 +297,7 @@
 		C9F56A8E1C8D2DF90009D557 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C9F56A8F1C8D2DF90009D557 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C9F56A901C8D2DF90009D557 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
+		EAC249468A9095FCD06052D8 /* libPods-WSPNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WSPNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,7 +307,7 @@
 			files = (
 				C93F897A1C8E93C5005C1CFB /* libz.tbd in Frameworks */,
 				C93F89781C8E93AD005C1CFB /* libstdc++.tbd in Frameworks */,
-				B8A324C8B34558516559CC11 /* libPods.a in Frameworks */,
+				0C0AEC20FCE7DF31B8C6696E /* libPods-WSPNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,20 +333,29 @@
 			children = (
 				C93F89791C8E93C5005C1CFB /* libz.tbd */,
 				C93F89771C8E93AD005C1CFB /* libstdc++.tbd */,
-				2FE6766FB4E2087E4A9FED8B /* libPods.a */,
+				EAC249468A9095FCD06052D8 /* libPods-WSPNews.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		895AA72F1A97380A14860D06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7CFB319F0D437C7F63D3867 /* Pods-WSPNews.debug.xcconfig */,
+				063F04E6A60EB51877A59CDC /* Pods-WSPNews.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		C93C56771C3D076400599C00 = {
 			isa = PBXGroup;
 			children = (
 				85727D070323DF286A7CB442 /* Frameworks */,
-				F049F144DB0F30DC4EE107BA /* Pods */,
 				C93C56811C3D076400599C00 /* Products */,
 				C93C56821C3D076400599C00 /* WSPNews */,
 				C93C569C1C3D076400599C00 /* WSPNewsTests */,
 				C93C56A71C3D076400599C00 /* WSPNewsUITests */,
+				895AA72F1A97380A14860D06 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -495,8 +499,6 @@
 		C93C56BE1C3D088A00599C00 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C96589021C744C9400E5184C /* AutoStirViewController.h */,
-				C96589031C744C9400E5184C /* AutoStirViewController.m */,
 				C93C56C21C3D097000599C00 /* WSPBaseViewController.h */,
 				C93C56C31C3D097000599C00 /* WSPBaseViewController.m */,
 				C93C56C51C3D098900599C00 /* WSPHomeViewController.h */,
@@ -725,15 +727,6 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		F049F144DB0F30DC4EE107BA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A5DF3E453F9BFFB8B0010F56 /* Pods.debug.xcconfig */,
-				4AABB8A61937430F9681898E /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -741,12 +734,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C93C56AD1C3D076400599C00 /* Build configuration list for PBXNativeTarget "WSPNews" */;
 			buildPhases = (
-				7F3E61D5BA5CEB9DE3D9D1F2 /* Check Pods Manifest.lock */,
+				182D4CDB081A24EB437EAAEB /* [CP] Check Pods Manifest.lock */,
 				C93C567C1C3D076400599C00 /* Sources */,
 				C93C567D1C3D076400599C00 /* Frameworks */,
 				C93C567E1C3D076400599C00 /* Resources */,
-				4E5E18B40F5D740D84AF9C8F /* Embed Pods Frameworks */,
-				F7842199F49706443232F6FE /* Copy Pods Resources */,
+				608DFFEA08DBDC84B07FE326 /* [CP] Embed Pods Frameworks */,
+				5F453F3F18D0AA519D820417 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -841,6 +834,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1F5B6B31D0CF8DD00515151 /* .gitkeep in Resources */,
 				C9F56ABF1C8D2DF90009D557 /* LICENSE in Resources */,
 				C9F56AA31C8D2DF90009D557 /* PlayButtonOverlayLarge@3x.png in Resources */,
 				C93C56931C3D076400599C00 /* LaunchScreen.storyboard in Resources */,
@@ -871,7 +865,6 @@
 				C9F56AB01C8D2DF90009D557 /* VideoOverlay.png in Resources */,
 				C9F56A941C8D2DF90009D557 /* ImageError@3x.png in Resources */,
 				C9414B961C5859CE0091A6C7 /* NewsUrl.plist in Resources */,
-				C9F56AB31C8D2DF90009D557 /* .gitkeep in Resources */,
 				C9F56A9C1C8D2DF90009D557 /* ImageSelectedSmallOff@2x.png in Resources */,
 				C9F56A961C8D2DF90009D557 /* ImageSelectedOff@2x.png in Resources */,
 				C9414B981C585C280091A6C7 /* WSPNews.storyboard in Resources */,
@@ -886,7 +879,6 @@
 				C99BC8AF1C72FF440022C12C /* WSPDetailBottomCell.xib in Resources */,
 				C9F56AB21C8D2DF90009D557 /* VideoOverlay@3x.png in Resources */,
 				C9F56A951C8D2DF90009D557 /* ImageSelectedOff.png in Resources */,
-				C9F56A911C8D2DF90009D557 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -907,29 +899,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E5E18B40F5D740D84AF9C8F /* Embed Pods Frameworks */ = {
+		182D4CDB081A24EB437EAAEB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7F3E61D5BA5CEB9DE3D9D1F2 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -937,19 +914,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F7842199F49706443232F6FE /* Copy Pods Resources */ = {
+		5F453F3F18D0AA519D820417 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WSPNews/Pods-WSPNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		608DFFEA08DBDC84B07FE326 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WSPNews/Pods-WSPNews-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -973,7 +965,6 @@
 				C93C56F81C3D19FF00599C00 /* WSPHomeRequest.m in Sources */,
 				C93C56CD1C3D0A7100599C00 /* WSPHomeViewModel.m in Sources */,
 				C99BC8AD1C72FE4B0022C12C /* UIView+WSPFrame.m in Sources */,
-				C9F56AC11C8D2DF90009D557 /* README.mdown in Sources */,
 				C9464BC91C61905C00ACBC4F /* WSPNewsDetailViewController.m in Sources */,
 				C93C56C71C3D098900599C00 /* WSPHomeViewController.m in Sources */,
 				C9F56AB51C8D2DF90009D557 /* MWGridCell.m in Sources */,
@@ -994,7 +985,6 @@
 				C9464BCC1C61927600ACBC4F /* WSPDetailModel.m in Sources */,
 				C93D01691C7D854700FF4D08 /* UIGestureRecognizer+BlocksKit.m in Sources */,
 				C93C56D01C3D0A8D00599C00 /* WSPHomeCell.m in Sources */,
-				C96589041C744C9400E5184C /* AutoStirViewController.m in Sources */,
 				C93F898F1C8ECDFF005C1CFB /* WSPThemeManger.m in Sources */,
 				C93C56851C3D076400599C00 /* main.m in Sources */,
 				C99BC8B21C72FFFD0022C12C /* WSPDetailBottomCell.m in Sources */,
@@ -1151,7 +1141,7 @@
 		};
 		C93C56AE1C3D076400599C00 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5DF3E453F9BFFB8B0010F56 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A7CFB319F0D437C7F63D3867 /* Pods-WSPNews.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1159,8 +1149,41 @@
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = WSPNews/Classes/Main/Other/WSPPrefixFile.pch;
 				INFOPLIST_FILE = WSPNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFDownloadRequestOperation\"",
+					"-l\"AFNetworking\"",
+					"-l\"JTSImageViewController\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDCycleScrollView\"",
+					"-l\"SDWebImage\"",
+					"-l\"SSZipArchive\"",
+					"-l\"YTKNetwork\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-w",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ifeng.wspNews.WSPNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
@@ -1169,7 +1192,7 @@
 		};
 		C93C56AF1C3D076400599C00 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4AABB8A61937430F9681898E /* Pods.release.xcconfig */;
+			baseConfigurationReference = 063F04E6A60EB51877A59CDC /* Pods-WSPNews.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1177,8 +1200,41 @@
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PREFIX_HEADER = WSPNews/Classes/Main/Other/WSPPrefixFile.pch;
 				INFOPLIST_FILE = WSPNews/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFDownloadRequestOperation\"",
+					"-l\"AFNetworking\"",
+					"-l\"JTSImageViewController\"",
+					"-l\"MJExtension\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDCycleScrollView\"",
+					"-l\"SDWebImage\"",
+					"-l\"SSZipArchive\"",
+					"-l\"YTKNetwork\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-w",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ifeng.wspNews.WSPNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";

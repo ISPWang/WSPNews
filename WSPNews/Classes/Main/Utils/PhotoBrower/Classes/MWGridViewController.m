@@ -120,7 +120,6 @@
 }
 
 #pragma mark - Layout
-#warning 此处有些警告  一些方法已经废弃了
 - (CGFloat)getColumns {
     if ((UIInterfaceOrientationIsPortrait(self.interfaceOrientation))) {
         return _columns;

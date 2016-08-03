@@ -31,7 +31,28 @@
     }
     return self;
 }
+- (id)initWithPhotos:(NSArray *)photosArray {
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
 
+- (id)initWithDelegate:(id<WSPPhotoBrowerDelegate>)delegate {
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+- (void)setCurrentPhotoIndex:(NSUInteger)index {
+    NSLog(@"%ld",index);
+}
+- (void)showNextPhotoAnimated:(BOOL)animated {
+    
+}
+- (void)showPreviousPhotoAnimated:(BOOL)animated {
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGRect pagingScrollViewFrame = [self frameForPagingScrollView];

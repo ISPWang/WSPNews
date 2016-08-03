@@ -117,8 +117,13 @@
 - (void)stop {
     [self toggleAccessoriesWillStopCallBack];
     self.delegate = nil;
-    [[YTKNetworkAgent sharedInstance] cancelRequest:self];
-    [self toggleAccessoriesDidStopCallBack];
+    [[YTKNetworkAgent sharedInstance] cancelRequest:self completion:^{
+        [self toggleAccessoriesDidStopCallBack];
+    }];
+}
+
+- (BOOL)isCancelled {
+    return self.requestOperation.isCancelled;
 }
 
 - (BOOL)isExecuting {
@@ -163,7 +168,11 @@
     return self.requestOperation.response.allHeaderFields;
 }
 
-#pragma mark - Request Accessoies
+- (NSError *)requestOperationError {
+    return self.requestOperation.error;
+}
+
+#pragma mark - Request Accessories
 
 - (void)addAccessory:(id<YTKRequestAccessory>)accessory {
     if (!self.requestAccessories) {
