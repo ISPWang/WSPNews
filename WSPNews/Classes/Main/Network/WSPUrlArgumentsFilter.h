@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WSPUrlArgumentsFilter : NSObject <YTKUrlFilterProtocol>
+@interface WSPUrlArgumentsFilter : NSObject 
 
-+ (WSPUrlArgumentsFilter *)filterWithArguments:(NSDictionary *)arguments;
-
-- (NSString *)filterUrl:(NSString *)originUrl withRequest:(YTKBaseRequest *)request;
+//+ (WSPUrlArgumentsFilter *)filterWithArguments:(NSDictionary *)arguments;
+//
+//- (NSString *)filterUrl:(NSString *)originUrl withRequest:(YTKBaseRequest *)request;
 @end

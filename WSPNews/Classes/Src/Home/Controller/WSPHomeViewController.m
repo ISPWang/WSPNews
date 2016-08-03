@@ -7,11 +7,10 @@
 //
 
 #import "WSPHomeViewController.h"
-#import "WSPHomeRequest.h"
 #import "WSPTableViewController.h"
 #import "WSPTitleShowLabel.h"
 
-@interface WSPHomeViewController () <UIScrollViewDelegate>//<YTKRequestDelegate>
+@interface WSPHomeViewController () <UIScrollViewDelegate>
 /**
  *  标题栏
  */
@@ -179,58 +178,6 @@
 }
 
 
-- (void)testRequest {
-    
-    WSPHomeRequest *requestHome = [[WSPHomeRequest alloc] init];
-    //    requestHome.requestOperation.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
-    //    text/html
-    //    requestHome.cityCode = @"110000";
-    //    NSMutableDictionary *muDic = [NSMutableDictionary dictionary];
-    //    [muDic setValue:@20004 forKey:@"brandId"];
-    //    [muDic setValue:@"-1" forKey:@"carId"];
-    //    [muDic setValue:@110000 forKey:@"city"];
-    //    [muDic setValue:@"北京市" forKey:@"cityName"];
-    //
-    //    [muDic setValue:@"38.34-56.7" forKey:@"guidePrice"];
-    //    [muDic setValue:@2966 forKey:@"serialId"];
-    //
-    //    [muDic setValue:@"奥迪Q5" forKey:@"serialName"];
-    //    [muDic setValue:@"myName" forKey:@"userName"];
-    //    [muDic setValue:@"18119845906" forKey:@"mobile"];
-    //    requestHome.dict = muDic;
-    //    carId = "-1";
-    //    city = 110000;
-    //    cityName = "\U5317\U4eac\U5e02";
-    //    guidePrice = "38.34-56.7";
-    //    mobile = 15818829876;
-    //    serialId = 2966;
-    //    serialName = "\U5965\U8feaQ5";
-    //    userName = We;
-    //    requestHome.delegate = self;
-    //    [requestHome start];
-    if ([requestHome cacheJson]) {
-        NSString *json = [requestHome cacheJson];
-        WSPLog(@"json = %@", json);
-        
-        // show cached data
-    }
-    //    NSLog(@"--++++--%@", [reg cacheJson]);
-    
-    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //        [requestHome startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-    //            WSPLog(@"-chengg---%@----%@",request.responseJSONObject, request.responseString);
-    //            //            request
-    //        } failure:^(YTKBaseRequest *request) {
-    //            WSPLog(@"----shibai");
-    //        }];
-    //    });
-    [requestHome startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        WSPLog(@"-chengg---%@----%@",request.responseJSONObject, request.responseString);
-        
-    } failure:^(YTKBaseRequest *request) {
-        WSPLog(@"----shibai");
-    }];
-}
 #pragma mark - notifications
 
 - (void)didReceiveThemeChangeNotification {

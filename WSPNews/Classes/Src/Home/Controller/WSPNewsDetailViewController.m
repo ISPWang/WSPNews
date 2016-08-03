@@ -7,18 +7,19 @@
 //
 
 #import "WSPNewsDetailViewController.h"
-#import "WSPNewsDeatilRequest.h"
+
 #import "WSPDetailModel.h"
 #import "WSPReleatedModel.h"
 #import "JTSImageViewController.h"
 #import "WSPDetailBottomCell.h"
-#import "WSPReplyRequest.h"
 #import "WSPReplyModel.h"
 
 
 #import "WSPDownLoadFontManager.h"
 
 #import "ZipArchive.h"
+
+#import "AFNetworking.h"
 
 #import <CoreText/CoreText.h>
 
@@ -79,27 +80,29 @@
     [alertV show];
     
     NSString *fontPath =  [[self filePath:@"regular"] stringByAppendingString:@"/dfgb_ww5/regular.ttf"];
-    
-    
 //
     if ([[NSFileManager defaultManager] fileExistsAtPath:fontPath]) {
-        btn.titleLabel.font = [UIFont fontWithName:KShowFontName size:15];//[UIFont fontWithName:[self customFontWithPath:fontPath size:15] size:15];
+        btn.titleLabel.font = [UIFont fontWithName:KShowFontName size:15];
         return;
     }
-    WSPDownLoadFontManager *down = [[WSPDownLoadFontManager alloc] initWithFileName:@"dfgb_ww5.zip"];
-    [down startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
-        WSPLog(@"---%@---%@",request.responseString,[self filePath:@"dfgb_ww5.zip"]);
-        NSString *zipPath = [self filePath:@"dfgb_ww5.zip"];
-        NSString *destinationPath = [self filePath:@"regular"];
+    NSString *downLoadString = @"http://file.ws.126.net/3g/client/font/dfgb_ww5.zip";
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+   NSURLSessionDownloadTask *downloadTask = [WSPNetWorkTool downloadTaskWithRequest:downLoadString progress:^(NSProgress *downloadProgress) {
+        WSPLog(@"%f",1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
         
-        BOOL result =  [SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath delegate:nil];
-        WSPLog(@"---%d---%@",result,[self filePath:@"dfgb_ww5.zip"]);
-//        NSString *fontPath =  [[self filePath:@"regular"] stringByAppendingString:@"/dfgb_ww5/regular.ttf"];
-        btn.titleLabel.font = [UIFont fontWithName:[self customFontWithPath:fontPath] size:15];
-        
-    } failure:^(__kindof YTKBaseRequest *request) {
-        WSPLog(@"---失败");
+    } cachePath:cachesPath completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        if (error) {
+            WSPLog(@"error = %@", error);
+        } else {
+            // filePath就是你下载文件的位置，你可以解压，也可以直接拿来使用
+            NSString *destinationPath = [self filePath:@"regular"];
+            //
+            BOOL result =  [SSZipArchive unzipFileAtPath:filePath.path toDestination:destinationPath delegate:nil];
+            btn.titleLabel.font = [UIFont fontWithName:[self customFontWithPath:fontPath] size:15];
+            WSPLog(@"---%d---%@",result,filePath.path);
+        }
     }];
+    [downloadTask resume];
 }
 -(NSString *)customFontWithPath:(NSString*)path
 {
@@ -115,10 +118,9 @@
 }
 
 - (NSString *)filePath:(NSString *)fileName {
-    NSString *libPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *cachePath = [libPath stringByAppendingPathComponent:@"Caches"];
-    NSString *filePath = [cachePath stringByAppendingPathComponent:fileName];
-    return filePath;
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [cachesPath stringByAppendingPathComponent:fileName];
+    return path;
 }
 
 - (IBAction)scale {
@@ -168,7 +170,7 @@
        CGFloat webViewHeight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
         
         self.webView.height = webViewHeight + 20;
-//        self.webView.scrollView.contentSize = CGSizeMake(self.webView.width, webViewHeight + 20);
+        
         [self webKitFillBackGroundColor];
         
         [self.tabView reloadData];
@@ -185,22 +187,14 @@
     [super viewDidLoad];
     // Do any things for me
     [self configerBackGroundColor];
-//    self.tabView.delegate   = nil;
-//    self.tabView.dataSource = nil;
     self.webView.delegate = self;
-//    self.webView.scrollView.delegate = self;
     
-//    [self.view addSubview:self.webView]; // 只加载个WebView样式看看
     
-    WSPNewsDeatilRequest *requestHome = [[WSPNewsDeatilRequest alloc] init];
+    NSString *requestUrl = [NSString stringWithFormat:@"nc/article/%@/full.html",self.newsModel.docid];
     
-    requestHome.docid = self.newsModel.docid;
-    
-    [requestHome startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingMutableContainers error:nil];
-        if ([jsonDict isKindOfClass:[NSDictionary class]]) {
-            WSPLog(@"------%@",request.responseString);
-            self.detailModel = [WSPDetailModel mj_objectWithKeyValues:jsonDict[self.newsModel.docid]];
+    [WSPNetWorkTool getWithUrl:requestUrl success:^(id response) {
+        if ([response isKindOfClass:[NSDictionary class]]) {
+            self.detailModel = [WSPDetailModel mj_objectWithKeyValues:response[self.newsModel.docid]];
             if (self.newsModel.boardid.length < 1) {
                 self.newsModel.boardid = self.detailModel.replyBoard;
             }
@@ -208,12 +202,11 @@
             
             [self showInWebView];
             [self sendRequestWithUrl2];
-            self.sameNews = [WSPReleatedModel mj_objectArrayWithKeyValuesArray:jsonDict[self.newsModel.docid][@"relative_sys"]];
-             self.keywordSearch = jsonDict[self.newsModel.docid][@"keyword_search"];
+            self.sameNews = [WSPReleatedModel mj_objectArrayWithKeyValuesArray:response[self.newsModel.docid][@"relative_sys"]];
+            self.keywordSearch = response[self.newsModel.docid][@"keyword_search"];
         }
-        
-    } failure:^(YTKBaseRequest *request) {
-        WSPLog(@"加载失败 error");
+    } fail:^(NSError *error) {
+        WSPLog(@"error = %@", error);
     }];
     
     
@@ -237,19 +230,13 @@
                                  forKeyPath:@"contentSize" context:nil];
 }
 - (void)sendRequestWithUrl2 {
-    WSPReplyRequest *requestHome = [[WSPReplyRequest alloc] init];
     
-    requestHome.docID = self.newsModel.docid;
-    requestHome.boardid = self.newsModel.boardid;
-    
-    [requestHome startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+    NSString *requestUrl = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/%@/%@/0/10/10/2/2",self.newsModel.boardid, self.newsModel.docid];
+    [WSPNetWorkTool getWithUrl:requestUrl success:^(NSDictionary *response) {
         
-        
-        NSDictionary *resbonseJson = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingMutableContainers error:nil];
-        
-        if (resbonseJson[@"hotPosts"] != [NSNull null]) {
-            NSArray *dictarray = resbonseJson[@"hotPosts"];
-                    NSLog(@"%ld",dictarray.count);
+        if (response[@"hotPosts"] != [NSNull null]) {
+            NSArray *dictarray = response[@"hotPosts"];
+            NSLog(@"%ld",dictarray.count);
             
             for (int i = 0; i < dictarray.count; i++) {
                 NSDictionary *dict = dictarray[i][@"1"];
@@ -268,10 +255,11 @@
             
             [self.tabView reloadData];
         }
+
+    } fail:^(NSError *error) {
         
-    } failure:^(__kindof YTKBaseRequest *request) {
-        WSPLog(@"加载失败评论失败");
     }];
+    
 }
 #pragma mark - webView 加载html 标签
 - (void)showInWebView {

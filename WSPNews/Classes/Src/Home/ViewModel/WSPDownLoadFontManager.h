@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YTKRequest.h"
+//#import "YTKRequest.h"
 
-@interface WSPDownLoadFontManager : YTKRequest
+@interface WSPDownLoadFontManager : NSObject
 - (id)initWithFileName:(NSString *)fileName;
 @end

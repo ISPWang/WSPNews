@@ -17,14 +17,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    YTKNetworkConfig *config = [YTKNetworkConfig sharedInstance];
-    WSPUrlArgumentsFilter *urlFilter = [WSPUrlArgumentsFilter filterWithArguments:@{@"version": appVersion}];
-    [config addUrlFilter:urlFilter];
-    //    http://api.auto.ifeng.com/app/api/tuan_cont.php?city=110000
-//    config.baseUrl = @"http://api.auto.ifeng.com";
-    config.baseUrl = @"http://c.m.163.com/";//@"http://dealer.auto.ifeng.com";
-    config.cdnUrl = @"http://auto.ifeng.com";
+//    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+//    YTKNetworkConfig *config = [YTKNetworkConfig sharedInstance];
+//    WSPUrlArgumentsFilter *urlFilter = [WSPUrlArgumentsFilter filterWithArguments:@{@"version": appVersion}];
+//    [config addUrlFilter:urlFilter];
+//    //    http://api.auto.ifeng.com/app/api/tuan_cont.php?city=110000
+////    config.baseUrl = @"http://api.auto.ifeng.com";
+//    config.baseUrl = @"http://c.m.163.com/";//@"http://dealer.auto.ifeng.com";
+//    config.cdnUrl = @"http://auto.ifeng.com";
+    
+    [WSPNetWorkTool updateBaseUrl:@"http://c.m.163.com/"];
     
     // 修改配置选项
     return YES;

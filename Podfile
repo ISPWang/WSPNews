@@ -1,6 +1,6 @@
 platform :ios, '7.1' 
 target "WSPNews" do 
-pod 'YTKNetwork'
+pod 'AFNetworking', '~> 3.1.0'
 pod 'MJRefresh'
 pod 'SDWebImage'
 pod 'MJExtension'

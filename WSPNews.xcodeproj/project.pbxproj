@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C0AEC20FCE7DF31B8C6696E /* libPods-WSPNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAC249468A9095FCD06052D8 /* libPods-WSPNews.a */; };
+		A16C0C341D51CA370087754C /* WSPNetWorkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A16C0C331D51CA370087754C /* WSPNetWorkTool.m */; };
 		A1F5B6B31D0CF8DD00515151 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A4E1C8D2DF90009D557 /* .gitkeep */; };
 		C93C56851C3D076400599C00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56841C3D076400599C00 /* main.m */; };
 		C93C56881C3D076400599C00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56871C3D076400599C00 /* AppDelegate.m */; };
@@ -27,7 +28,6 @@
 		C93C56EC1C3D0E9700599C00 /* YZFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56E81C3D0E9700599C00 /* YZFlowLayout.m */; };
 		C93C56F21C3D14F800599C00 /* WSPConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56F11C3D14F800599C00 /* WSPConst.m */; };
 		C93C56F51C3D16E300599C00 /* WSPUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56F41C3D16E300599C00 /* WSPUrlArgumentsFilter.m */; };
-		C93C56F81C3D19FF00599C00 /* WSPHomeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C93C56F71C3D19FF00599C00 /* WSPHomeRequest.m */; };
 		C93D01601C7D834E00FF4D08 /* WSPShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D015F1C7D834E00FF4D08 /* WSPShareView.m */; };
 		C93D01651C7D84C000FF4D08 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D01621C7D84C000FF4D08 /* UIColor+expanded.m */; };
 		C93D01661C7D84C000FF4D08 /* UIView+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C93D01641C7D84C000FF4D08 /* UIView+BlocksKit.m */; };
@@ -48,12 +48,9 @@
 		C9414B9E1C585D420091A6C7 /* WSPTitleShowLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9414B9D1C585D420091A6C7 /* WSPTitleShowLabel.m */; };
 		C9464BC91C61905C00ACBC4F /* WSPNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BC81C61905C00ACBC4F /* WSPNewsDetailViewController.m */; };
 		C9464BCC1C61927600ACBC4F /* WSPDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BCB1C61927600ACBC4F /* WSPDetailModel.m */; };
-		C9464BCF1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */; };
 		C9464BD11C619F2800ACBC4F /* WSPNews.css in Resources */ = {isa = PBXBuildFile; fileRef = C9464BD01C619F2800ACBC4F /* WSPNews.css */; };
 		C94C900B1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C94C900A1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m */; };
-		C96589071C7451CE00E5184C /* WSPPhotoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589061C7451CE00E5184C /* WSPPhotoRequest.m */; };
 		C965890A1C74548500E5184C /* WSPPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C96589091C74548500E5184C /* WSPPhotoModel.m */; };
-		C965890D1C74574800E5184C /* WSPPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C965890C1C74574800E5184C /* WSPPhotoViewController.m */; };
 		C965C4811C92585300007AF9 /* placeHolder_1_640 360.png in Resources */ = {isa = PBXBuildFile; fileRef = C965C4801C92585300007AF9 /* placeHolder_1_640 360.png */; };
 		C97BEA631C916EB10026E89D /* jquery-1.12.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C97BEA611C916EB10026E89D /* jquery-1.12.1.min.js */; };
 		C97BEA641C916EB10026E89D /* jquery.lazyload.min.js in Resources */ = {isa = PBXBuildFile; fileRef = C97BEA621C916EB10026E89D /* jquery.lazyload.min.js */; };
@@ -61,7 +58,6 @@
 		C99BC8AD1C72FE4B0022C12C /* UIView+WSPFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8AC1C72FE4B0022C12C /* UIView+WSPFrame.m */; };
 		C99BC8AF1C72FF440022C12C /* WSPDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99BC8AE1C72FF440022C12C /* WSPDetailBottomCell.xib */; };
 		C99BC8B21C72FFFD0022C12C /* WSPDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B11C72FFFD0022C12C /* WSPDetailBottomCell.m */; };
-		C99BC8B51C7303BE0022C12C /* WSPReplyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B41C7303BE0022C12C /* WSPReplyRequest.m */; };
 		C99BC8B81C7306890022C12C /* WSPReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C99BC8B71C7306890022C12C /* WSPReplyModel.m */; };
 		C9F56A921C8D2DF90009D557 /* ImageError.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A4F1C8D2DF90009D557 /* ImageError.png */; };
 		C9F56A931C8D2DF90009D557 /* ImageError@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F56A501C8D2DF90009D557 /* ImageError@2x.png */; };
@@ -130,6 +126,8 @@
 
 /* Begin PBXFileReference section */
 		063F04E6A60EB51877A59CDC /* Pods-WSPNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WSPNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-WSPNews/Pods-WSPNews.release.xcconfig"; sourceTree = "<group>"; };
+		A16C0C321D51CA370087754C /* WSPNetWorkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPNetWorkTool.h; sourceTree = "<group>"; };
+		A16C0C331D51CA370087754C /* WSPNetWorkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPNetWorkTool.m; sourceTree = "<group>"; };
 		A7CFB319F0D437C7F63D3867 /* Pods-WSPNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WSPNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WSPNews/Pods-WSPNews.debug.xcconfig"; sourceTree = "<group>"; };
 		C93C56801C3D076400599C00 /* WSPNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WSPNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93C56841C3D076400599C00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,8 +167,6 @@
 		C93C56F11C3D14F800599C00 /* WSPConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPConst.m; sourceTree = "<group>"; };
 		C93C56F31C3D16E300599C00 /* WSPUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPUrlArgumentsFilter.h; sourceTree = "<group>"; };
 		C93C56F41C3D16E300599C00 /* WSPUrlArgumentsFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPUrlArgumentsFilter.m; sourceTree = "<group>"; };
-		C93C56F61C3D19FF00599C00 /* WSPHomeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPHomeRequest.h; sourceTree = "<group>"; };
-		C93C56F71C3D19FF00599C00 /* WSPHomeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPHomeRequest.m; sourceTree = "<group>"; };
 		C93D015E1C7D834E00FF4D08 /* WSPShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPShareView.h; sourceTree = "<group>"; };
 		C93D015F1C7D834E00FF4D08 /* WSPShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPShareView.m; sourceTree = "<group>"; };
 		C93D01611C7D84C000FF4D08 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
@@ -208,17 +204,11 @@
 		C9464BC81C61905C00ACBC4F /* WSPNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPNewsDetailViewController.m; sourceTree = "<group>"; };
 		C9464BCA1C61927600ACBC4F /* WSPDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPDetailModel.h; sourceTree = "<group>"; };
 		C9464BCB1C61927600ACBC4F /* WSPDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPDetailModel.m; sourceTree = "<group>"; };
-		C9464BCD1C6192EB00ACBC4F /* WSPNewsDeatilRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPNewsDeatilRequest.h; sourceTree = "<group>"; };
-		C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPNewsDeatilRequest.m; sourceTree = "<group>"; };
 		C9464BD01C619F2800ACBC4F /* WSPNews.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = WSPNews.css; sourceTree = "<group>"; };
 		C94C90091CA3BAAC00B3B446 /* WSPDownLoadFontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPDownLoadFontManager.h; sourceTree = "<group>"; };
 		C94C900A1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPDownLoadFontManager.m; sourceTree = "<group>"; };
-		C96589051C7451CE00E5184C /* WSPPhotoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoRequest.h; sourceTree = "<group>"; };
-		C96589061C7451CE00E5184C /* WSPPhotoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoRequest.m; sourceTree = "<group>"; };
 		C96589081C74548500E5184C /* WSPPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoModel.h; sourceTree = "<group>"; };
 		C96589091C74548500E5184C /* WSPPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoModel.m; sourceTree = "<group>"; };
-		C965890B1C74574800E5184C /* WSPPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPPhotoViewController.h; sourceTree = "<group>"; };
-		C965890C1C74574800E5184C /* WSPPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPPhotoViewController.m; sourceTree = "<group>"; };
 		C965C4801C92585300007AF9 /* placeHolder_1_640 360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeHolder_1_640 360.png"; sourceTree = "<group>"; };
 		C97BEA611C916EB10026E89D /* jquery-1.12.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.12.1.min.js"; sourceTree = "<group>"; };
 		C97BEA621C916EB10026E89D /* jquery.lazyload.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.lazyload.min.js; sourceTree = "<group>"; };
@@ -229,8 +219,6 @@
 		C99BC8AE1C72FF440022C12C /* WSPDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WSPDetailBottomCell.xib; sourceTree = "<group>"; };
 		C99BC8B01C72FFFD0022C12C /* WSPDetailBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPDetailBottomCell.h; sourceTree = "<group>"; };
 		C99BC8B11C72FFFD0022C12C /* WSPDetailBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPDetailBottomCell.m; sourceTree = "<group>"; };
-		C99BC8B31C7303BE0022C12C /* WSPReplyRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPReplyRequest.h; sourceTree = "<group>"; };
-		C99BC8B41C7303BE0022C12C /* WSPReplyRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPReplyRequest.m; sourceTree = "<group>"; };
 		C99BC8B61C7306890022C12C /* WSPReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSPReplyModel.h; sourceTree = "<group>"; };
 		C99BC8B71C7306890022C12C /* WSPReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSPReplyModel.m; sourceTree = "<group>"; };
 		C9F56A4E1C8D2DF90009D557 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -505,8 +493,6 @@
 				C93C56C61C3D098900599C00 /* WSPHomeViewController.m */,
 				C9464BC71C61905C00ACBC4F /* WSPNewsDetailViewController.h */,
 				C9464BC81C61905C00ACBC4F /* WSPNewsDetailViewController.m */,
-				C965890B1C74574800E5184C /* WSPPhotoViewController.h */,
-				C965890C1C74574800E5184C /* WSPPhotoViewController.m */,
 				C9414B991C585C850091A6C7 /* WSPTableViewController.h */,
 				C9414B9A1C585C850091A6C7 /* WSPTableViewController.m */,
 			);
@@ -533,16 +519,8 @@
 		C93C56C01C3D08A000599C00 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C93C56F61C3D19FF00599C00 /* WSPHomeRequest.h */,
-				C93C56F71C3D19FF00599C00 /* WSPHomeRequest.m */,
 				C93C56CB1C3D0A7100599C00 /* WSPHomeViewModel.h */,
 				C93C56CC1C3D0A7100599C00 /* WSPHomeViewModel.m */,
-				C9464BCD1C6192EB00ACBC4F /* WSPNewsDeatilRequest.h */,
-				C9464BCE1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m */,
-				C96589051C7451CE00E5184C /* WSPPhotoRequest.h */,
-				C96589061C7451CE00E5184C /* WSPPhotoRequest.m */,
-				C99BC8B31C7303BE0022C12C /* WSPReplyRequest.h */,
-				C99BC8B41C7303BE0022C12C /* WSPReplyRequest.m */,
 				C94C90091CA3BAAC00B3B446 /* WSPDownLoadFontManager.h */,
 				C94C900A1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m */,
 			);
@@ -593,6 +571,8 @@
 				C93C56EF1C3D116A00599C00 /* WSPPrefixFile.pch */,
 				C93D015E1C7D834E00FF4D08 /* WSPShareView.h */,
 				C93D015F1C7D834E00FF4D08 /* WSPShareView.m */,
+				A16C0C321D51CA370087754C /* WSPNetWorkTool.h */,
+				A16C0C331D51CA370087754C /* WSPNetWorkTool.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -951,30 +931,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C99BC8B51C7303BE0022C12C /* WSPReplyRequest.m in Sources */,
 				C9F56AB81C8D2DF90009D557 /* MWPhotoBrowser.m in Sources */,
 				C99BC8B81C7306890022C12C /* WSPReplyModel.m in Sources */,
 				C9F56AB91C8D2DF90009D557 /* MWTapDetectingImageView.m in Sources */,
 				C93D01661C7D84C000FF4D08 /* UIView+BlocksKit.m in Sources */,
-				C9464BCF1C6192EB00ACBC4F /* WSPNewsDeatilRequest.m in Sources */,
 				C9F56AC01C8D2DF90009D557 /* MBProgressHUD.m in Sources */,
 				C94C900B1CA3BAAC00B3B446 /* WSPDownLoadFontManager.m in Sources */,
 				C93F89891C8ECDD2005C1CFB /* WSPPhotoBrowerController.m in Sources */,
 				C93C56E91C3D0E9700599C00 /* UIView+Frame.m in Sources */,
 				C9414B9E1C585D420091A6C7 /* WSPTitleShowLabel.m in Sources */,
-				C93C56F81C3D19FF00599C00 /* WSPHomeRequest.m in Sources */,
 				C93C56CD1C3D0A7100599C00 /* WSPHomeViewModel.m in Sources */,
 				C99BC8AD1C72FE4B0022C12C /* UIView+WSPFrame.m in Sources */,
 				C9464BC91C61905C00ACBC4F /* WSPNewsDetailViewController.m in Sources */,
 				C93C56C71C3D098900599C00 /* WSPHomeViewController.m in Sources */,
 				C9F56AB51C8D2DF90009D557 /* MWGridCell.m in Sources */,
 				C9F56ABB1C8D2DF90009D557 /* MWZoomingScrollView.m in Sources */,
+				A16C0C341D51CA370087754C /* WSPNetWorkTool.m in Sources */,
 				C9F56ABC1C8D2DF90009D557 /* UIImage+MWPhotoBrowser.m in Sources */,
 				C93C56C41C3D097000599C00 /* WSPBaseViewController.m in Sources */,
 				C9F56ABE1C8D2DF90009D557 /* DALabeledCircularProgressView.m in Sources */,
 				C9414B9B1C585C850091A6C7 /* WSPTableViewController.m in Sources */,
 				C93C56EB1C3D0E9700599C00 /* YZDisplayViewController.m in Sources */,
-				C96589071C7451CE00E5184C /* WSPPhotoRequest.m in Sources */,
 				C93C56EC1C3D0E9700599C00 /* YZFlowLayout.m in Sources */,
 				C93C56881C3D076400599C00 /* AppDelegate.m in Sources */,
 				C93D01601C7D834E00FF4D08 /* WSPShareView.m in Sources */,
@@ -990,7 +967,6 @@
 				C99BC8B21C72FFFD0022C12C /* WSPDetailBottomCell.m in Sources */,
 				C93C56EA1C3D0E9700599C00 /* YZDisplayTitleLabel.m in Sources */,
 				C99BC8AA1C72F7D20022C12C /* WSPReleatedModel.m in Sources */,
-				C965890D1C74574800E5184C /* WSPPhotoViewController.m in Sources */,
 				C93F898A1C8ECDD2005C1CFB /* WSPPhotoImageView.m in Sources */,
 				C93C56F21C3D14F800599C00 /* WSPConst.m in Sources */,
 				C93F898C1C8ECDD2005C1CFB /* WSPScrollView.m in Sources */,
@@ -1151,11 +1127,21 @@
 				INFOPLIST_FILE = WSPNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFDownloadRequestOperation\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJExtension\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/JTSImageViewController\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDCycleScrollView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SSZipArchive\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"AFDownloadRequestOperation\"",
 					"-l\"AFNetworking\"",
 					"-l\"JTSImageViewController\"",
 					"-l\"MJExtension\"",
@@ -1164,7 +1150,6 @@
 					"-l\"SDCycleScrollView\"",
 					"-l\"SDWebImage\"",
 					"-l\"SSZipArchive\"",
-					"-l\"YTKNetwork\"",
 					"-l\"z\"",
 					"-framework",
 					"\"Accelerate\"",
@@ -1206,7 +1191,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
-					"-l\"AFDownloadRequestOperation\"",
 					"-l\"AFNetworking\"",
 					"-l\"JTSImageViewController\"",
 					"-l\"MJExtension\"",
@@ -1215,7 +1199,6 @@
 					"-l\"SDCycleScrollView\"",
 					"-l\"SDWebImage\"",
 					"-l\"SSZipArchive\"",
-					"-l\"YTKNetwork\"",
 					"-l\"z\"",
 					"-framework",
 					"\"Accelerate\"",

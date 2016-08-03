@@ -11,18 +11,13 @@
 #import "WSPHomeCell.h"
 #import "WSPHomeModel.h"
 #import "MJRefresh.h"
-#import "WSPHomeRequest.h"
 
-#import "WSPPhotoRequest.h"
 #import "WSPPhotoModel.h"
-#import "WSPPhotoViewController.h"
 
-#import "WSPPhotoRequest.h"
 #import "WSPPhotoModel.h"
 
 @interface WSPTableViewController () <WSPHomeCellDelegate, MWPhotoBrowserDelegate>
 @property (nonatomic, strong) NSMutableArray *newsArrayList;
-@property (nonatomic, strong) WSPHomeRequest *requestHome;
 
 @property (nonatomic, strong) NSArray *photoName;
 @end
@@ -32,24 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
-//    UITextField *test = [[UITextField alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-////    test.tintColor = [UIColor redColor];
-////    test.onTintColor = [UIColor yellowColor];
-////    test.thumbTintColor = [UIColor greenColor];
-//    test.textColor = [UIColor redColor];
-//    test.placeholder = @"输入";
-//    test.tintColor = [UIColor colorWithRed:0.203 green:1.000 blue:0.000 alpha:1.000];
-//    [self.view addSubview:test];
-//    test.borderStyle = UITextBorderStyleRoundedRect;
-//    
-//    return;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -57,18 +34,8 @@
     self.tableView.mj_header = header;
     MJRefreshAutoNormalFooter * footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     self.tableView.mj_footer = footer;
-//    [self.tableView.mj_header beginRefreshing];
-    [self loadData];
-    
-    if ([self.requestHome cacheJson]) {
-        NSDictionary * json = [self.requestHome cacheJson];
-        WSPLog(@"json = %@", [json class]);
-        NSString *key = [json.keyEnumerator nextObject];
-        //
-        NSArray *temArray = json[key];
-        self.newsArrayList = [WSPHomeModel mj_objectArrayWithKeyValuesArray:temArray];
-        [self.tableView reloadData];
-    }
+    [self.tableView.mj_header beginRefreshing];
+//    [self loadData];
     
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveThemeChangeNotification) name:kThemeDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveFontTypeChangeNotification) name:KFontTypeDidChangeNotification object:nil];
@@ -91,17 +58,14 @@
 }
 // ------公共方法
 - (void)loadDataForType:(int)type withURL:(NSString *)allUrlstring {
-    WSPHomeRequest *requestHome = [[WSPHomeRequest alloc] init];
     
-    self.requestHome = requestHome;
-     self.requestHome.urlString = allUrlstring;
-    [self.requestHome startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
-        NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingMutableContainers error:nil];//(NSDictionary *)request.responseJSONObject;
-        NSString *key = [responseObject.keyEnumerator nextObject];
+    [WSPNetWorkTool getWithUrl:allUrlstring success:^(NSDictionary *response) {
+        WSPLog(@"%@",response);
+        NSString *key = [response.keyEnumerator nextObject];
         //
-        NSArray *temArray = responseObject[key];
+        NSArray *temArray = response[key];
         NSMutableArray *arrayM = [WSPHomeModel mj_objectArrayWithKeyValuesArray:temArray];
-//        WSPLog(@"-chengg---%@----%@",request.responseString, request.responseJSONObject);
+        
         if (type == 1) {
             self.newsArrayList = arrayM;
             [self.tableView.mj_header endRefreshing];
@@ -112,9 +76,8 @@
             [self.tableView.mj_footer endRefreshing];
             [self.tableView reloadData];
         }
-        WSPLog(@"是否从缓存取出  %d--是否过期--%d", self.requestHome.isDataFromCache, self.requestHome.isCacheVersionExpired);
-    } failure:^(YTKBaseRequest *request) {
-        WSPLog(@"----shibai");
+    } fail:^(NSError *error) {
+        WSPLog(@" error = %@", error);
     }];
 }
 
@@ -251,32 +214,23 @@
 - (void)cycleCell:(WSPHomeCell *)cycleCell didSelectItemAtIndex:(NSInteger)index {
     WSPLog(@"---%@",cycleCell.NewsModel.imgextra);
     NSDictionary *dict = cycleCell.NewsModel.ads[index];
-//    WSPPhotoViewController *autoPhoto = [[WSPPhotoViewController alloc] init];
-    
-//    autoPhoto.photosetID = dict[@"url"];//cycleCell.NewsModel.photosetID;
-//        
-//    [self.navigationController pushViewController:autoPhoto animated:YES];
     
     [self requestId:dict[@"url"]];
     
     
 }
 - (void)requestId:(NSString *)urlID {
-    WSPPhotoRequest *requestPhoto = [WSPPhotoRequest new];
-    requestPhoto.photoID = urlID;
     
-    [requestPhoto startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest *request) {
+    NSString *two = [urlID substringFromIndex:4];
+    NSArray *three = [two componentsSeparatedByString:@"|"];
+   NSString *requestUrl = [NSString stringWithFormat:@"photo/api/set/%@/%@.json",[three firstObject],[three lastObject]];
+    
+    [WSPNetWorkTool getWithUrl:requestUrl success:^(id response) {
         
-        NSDictionary *resbonseJson = [NSJSONSerialization JSONObjectWithData:request.responseData options:NSJSONReadingMutableContainers error:nil];
-        WSPPhotoModel *photoModel = [WSPPhotoModel mj_objectWithKeyValues:resbonseJson];
-        
-        
-        
+        WSPPhotoModel *photoModel = [WSPPhotoModel mj_objectWithKeyValues:response];
+    
         
         NSMutableArray *photoName = [NSMutableArray array];
-        //        NSMutableArray *photoString = [NSMutableArray array];
-        
-        
         
         BOOL displayActionButton = YES;
         BOOL displaySelectionButtons = NO;
@@ -285,14 +239,11 @@
         BOOL startOnGrid = NO;
         BOOL autoPlayOnAppear = NO;
         
-        //        NSMutableArray *photoDes = [NSMutableArray array];
         for (Photos *p  in photoModel.photos) {
             MWPhoto *photo = [MWPhoto photoWithURL:[NSURL URLWithString:p.imgurl]];
             photo.caption = p.note;
             // Photos
             [photoName addObject:photo];
-            //            [photoName addObject:p.imgurl];
-            //            [photoString addObject:p.note];
         }
         self.photoName = photoName;
         
@@ -309,7 +260,7 @@
         browser.autoPlayOnAppear = autoPlayOnAppear;
         [browser setCurrentPhotoIndex:0];
         [self.navigationController pushViewController:browser animated:YES];
-    } failure:^(__kindof YTKBaseRequest *request) {
+    } fail:^(NSError *error) {
         
     }];
 }

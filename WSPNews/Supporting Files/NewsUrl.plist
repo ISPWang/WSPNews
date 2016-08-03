@@ -10,19 +10,19 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>最新</string>
+		<string>体育</string>
 		<key>urlString</key>
 		<string>list/T1348649145984</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>新车</string>
+		<string>科技</string>
 		<key>urlString</key>
 		<string>list/T1348649654285</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>购车</string>
+		<string>资讯</string>
 		<key>urlString</key>
 		<string>list/T1351233117091</string>
 	</dict>

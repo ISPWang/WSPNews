@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFDownloadRequestOperation.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -54,20 +49,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>YTKNetwork.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>28EDA0AC3272A77B0575F728B99261BC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>38F33408B0DBDBBB776BD90150BA1EDE</key>
+		<key>2A5EF3E9C2EB50CA2773CDF37AFBD684</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,17 +62,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>70BC44266C6FFE30D2C57129458E070B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7EDBC06B3D447B9192D12E139BD4ACFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<key>85D82D23032065C2DB06BD04E309F5E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>91D4574E421D1005862F5E2C216218E9</key>
+		<key>8603E31BC25AEE84376EB9CC1373C8A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3C760711B585710870482548EF04B3F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CB67474ABA14639C785260A41641C922</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E2BF327E316A7B1EE49D6E52A89908B1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F8D746A5AB0D3CE518E864041072755C</key>
+		<key>BB8E2371021A1C3EE843C29634158D56</key>
 		<dict>
 			<key>primary</key>
 			<true/>

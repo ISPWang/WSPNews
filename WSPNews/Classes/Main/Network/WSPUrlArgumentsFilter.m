@@ -7,7 +7,7 @@
 //
 
 #import "WSPUrlArgumentsFilter.h"
-#import "YTKNetworkPrivate.h"
+//#import "YTKNetworkPrivate.h"
 
 @interface WSPUrlArgumentsFilter()
 @property (nonatomic, strong) NSDictionary *arguments;
@@ -27,7 +27,7 @@
     return self;
 }
 
-- (NSString *)filterUrl:(NSString *)originUrl withRequest:(YTKBaseRequest *)request {
-    return [YTKNetworkPrivate urlStringWithOriginUrlString:originUrl appendParameters:_arguments];
-}
+//- (NSString *)filterUrl:(NSString *)originUrl withRequest:(YTKBaseRequest *)request {
+//    return [YTKNetworkPrivate urlStringWithOriginUrlString:originUrl appendParameters:_arguments];
+//}
 @end
